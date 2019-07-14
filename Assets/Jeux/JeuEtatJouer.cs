@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityTest;
-using UnityChan;
 
 public class JeuEtatJouer : Jeu
 {
@@ -33,10 +32,6 @@ public class JeuEtatJouer : Jeu
                     /* jouer animation */
                     splashScreen.SetActive(true);
                     splashScreen.GetComponent<Animation>().Play();
-
-                    /* stopper script unity chan*/
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<UnityChanControlScriptWithRgidBody>().enabled = false;
-
 
                     demarrer = true;
                 }
