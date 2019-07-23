@@ -5,14 +5,23 @@ using UnityTest;
 
 public class GenerateWorld : MonoBehaviour
 {
+    public GameObject groundObj;
+    public GameObject groundParent;
+
     public Transform lastGenerated; //on garde la position de la derniere plateforme 
 
     private GameVar game;
+    private PoolObjects groundObjectPool;
 
     // Start is called before the first frame update
     void Start()
     {
         game = GameVar.DonnerInstance();
+        groundObjectPool = new PoolObjects();
+        groundObjectPool.SetGameObject = groundObj;
+        groundObjectPool.SetParentGameObject = groundParent.transform;
+        groundObjectPool.CreerObject(new Vector3(0, 0, 3), Quaternion.identity);
+        groundObjectPool.CreerObject(new Vector3(30.3f, 0, 3), Quaternion.identity);
     }
 
 
@@ -29,14 +38,14 @@ public class GenerateWorld : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         /* repete le sol de façon infinie*/
-        if(other.tag == "GroundEnd")
+        if (other.tag == "GroundEnd")
         {
             Transform savePos = other.transform;
-            other.transform.parent.position = new Vector2(lastGenerated.transform.position.x, other.transform.position.y);
-            lastGenerated = savePos;
+            groundObjectPool.CreerObject(savePos.position, Quaternion.identity);
+            groundObjectPool.SupprimerObject(other.transform.parent.gameObject);
         }
     }
 }
