@@ -5,11 +5,12 @@ using UnityTest;
 
 public class GenerateWorld : MonoBehaviour
 {
-    public GameObject groundObj;
-    public GameObject groundParent;
+    public GameObject groundObj;    // objet a repeter
+    public GameObject groundParent; // parent qui contiendra tous les objets à repeter
 
-    public Transform lastGenerated; //on garde la position de la derniere plateforme 
-
+    public Transform   lastGenerated; //on garde la position de la derniere plateforme 
+    public TimeManager timeMnager;    //ralentie le temps 
+    
     private GameVar game;
     private PoolObjects groundObjectPool;
 
@@ -22,18 +23,25 @@ public class GenerateWorld : MonoBehaviour
         groundObjectPool.SetParentGameObject = groundParent.transform;
         groundObjectPool.CreerObject(new Vector3(0, 0, 3), Quaternion.identity);
         groundObjectPool.CreerObject(new Vector3(30.3f, 0, 3), Quaternion.identity);
+
     }
 
 
     private void FixedUpdate()
     {
         float distanceParcourue = game.DistanceParcourue;
-        if (distanceParcourue == 0.950)
+        if (distanceParcourue > 50 && distanceParcourue  < 55 )
         {
+            //passage en slowmotion pour tous le monde
+            timeMnager.DoSlowmotion();
+
             // changement de gameplay
         }
-        else if (distanceParcourue > 1)
+        else if (distanceParcourue > 55)
         {
+            //sortie du slowmotion
+            timeMnager.StopSlowMotion();
+
             // changement de gameplay
         }
     }
