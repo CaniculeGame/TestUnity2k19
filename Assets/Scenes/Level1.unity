@@ -578,6 +578,11 @@ MonoBehaviour:
   groundObj: {fileID: 3338154903164286425, guid: 2a89bf019b8e54849b81c5a715a8d9a9,
     type: 3}
   groundParent: {fileID: 1064911887}
+  treedObj:
+  - {fileID: 1743542827347818, guid: 58cd80e8735394b41ad92a2458c90f9a, type: 3}
+  - {fileID: 1276113068307054, guid: 139dd5681ad53a84fab5db7f67bd7de2, type: 3}
+  - {fileID: 1977261233423868, guid: 2cebbe72b3420fb47b0861343e1b0a46, type: 3}
+  treeParent: {fileID: 1064911887}
   timeMnager: {fileID: 173681261}
 --- !u!1 &974495676
 GameObject:
