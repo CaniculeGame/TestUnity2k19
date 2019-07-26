@@ -10,7 +10,7 @@ public class CameraRunner : MonoBehaviour
 
     void Update()
     {
-       transform.position = new Vector3(player.position.x + 6, player.position.y + 2,-10);
+       transform.position = new Vector3(player.position.x + 6, player.position.y + 4.5f,-10);
 
        road.position = new Vector3(player.position.x, -0.7f, 3);
     }

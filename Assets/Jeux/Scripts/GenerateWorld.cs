@@ -13,6 +13,9 @@ public class GenerateWorld : MonoBehaviour
 
     public GameObject[] treedObj;
     private PoolObjects treeObjectPool; // pool d'arbre
+    private PoolObjects treeObjectPool2; // pool d'arbre
+    private PoolObjects treeObjectPool3; // pool d'arbre
+    private PoolObjects grassObjectPool; // pool d'herbe
     public  GameObject treeParent; // parent qui contiendra tous les objets à repeter
 
 
@@ -39,14 +42,28 @@ public class GenerateWorld : MonoBehaviour
         treeObjectPool.SetGameObject = treedObj[0];
         treeObjectPool.SetParentGameObject = treeParent.transform;
 
+        treeObjectPool2 = new PoolObjects();
+        treeObjectPool2.SetGameObject = treedObj[1];
+        treeObjectPool2.SetParentGameObject = treeParent.transform;
+
+        treeObjectPool3 = new PoolObjects();
+        treeObjectPool3.SetGameObject = treedObj[2];
+        treeObjectPool3.SetParentGameObject = treeParent.transform;
+
+        grassObjectPool = new PoolObjects();
+        grassObjectPool.SetGameObject = treedObj[3];
+        grassObjectPool.SetParentGameObject = treeParent.transform;
+
         perlinNoiseGenerator = new PerlinNoiseGenerator();
+        perlinNoiseGenerator.Echelle = 99f;
         perlinNoiseGenerator.CalculatePerlinNoise();
 
     }
 
-    /* A DEPLACER DANS GAMEPLAY , ICI ON FAIT QUE LE MONDE  */
+    
     private void FixedUpdate()
     {
+        /* A DEPLACER DANS GAMEPLAY , ICI ON FAIT QUE LE MONDE  */
         if (game == null)
             game = GameVar.DonnerInstance();
 
@@ -65,7 +82,11 @@ public class GenerateWorld : MonoBehaviour
 
             // changement de gameplay
         }
+
     }
+
+
+
 
     void OnTriggerExit(Collider other)
     {
@@ -73,12 +94,25 @@ public class GenerateWorld : MonoBehaviour
         {
             groundObjectPool.SupprimerObject(other.transform.parent.gameObject); // ground end est fils
         }
-        else if(other.tag == "Tree")
+        else if(other.tag == "Tree1")
         {
-            treeObjectPool.SupprimerObject(other.transform.gameObject); // tree est deja le parent
+            treeObjectPool.SupprimerObject(other.gameObject); // tree est deja le parent
         }
-        
+        else if (other.tag == "Tree2")
+        {
+            treeObjectPool2.SupprimerObject(other.gameObject); // tree est deja le parent
+        }
+        else if (other.tag == "Tree3")
+        {
+            treeObjectPool3.SupprimerObject(other.gameObject); // tree est deja le parent
+        }
+        else if (other.tag == "grass")
+        {
+            grassObjectPool.SupprimerObject(other.gameObject); // grass est deja le parent
+        }
+
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -88,26 +122,48 @@ public class GenerateWorld : MonoBehaviour
             groundObjectPool.CreerObject(other.transform.position, Quaternion.identity);
 
             // generation du decors
-            Vector3 positionDebut = other.transform.position;
-            float size = groundObj.GetComponentInChildren<Renderer>().bounds.size.x;
-            Vector3 positionFin = new Vector3(positionDebut.x + size, positionDebut.y, positionDebut.z);
-
+            Vector3 positionDebut = other.transform.parent.position;
+            float size = groundObj.GetComponentInChildren<Renderer>().bounds.size.x*3;
             //quand on cree un chemin on va placer des objets le long du terrain precedement generé 
-            /*    perlinNoiseGenerator.PositionPerlinMap = new Vector2(Random.Range(0, perlinNoiseGenerator.Largeur), Random.Range(1,perlinNoiseGenerator.Hauteur - size));
-                for (int x = 0; x < size; x++)
+
+            /* GENERATION DU MONDE*/
+            int nbMax = Random.Range(1, 10);
+            Vector3 position;
+            for (int i = 0; i < nbMax; i++)
+            {
+                float valeur = perlinNoiseGenerator.ValeurPosition;
+                Vector2 pos = perlinNoiseGenerator.PositionPerlinMap;
+                if (valeur < 0.05)
                 {
-                    Vector2 position = perlinNoiseGenerator.PositionPerlinMap;
-                    Vector3 positionNouveauObj = other.transform.position;
-                    float val = perlinNoiseGenerator.ValeurPosition;
 
-                    perlinNoiseGenerator.PositionPerlinMap = new Vector2(position.x, position.y + 1);  //OnTriggerEnter incremente la position
+                }
+                else if (valeur < 0.25f)
+                {
+                    position = new Vector3((positionDebut.x + Random.Range(0f, size)), (-1) * Random.Range(0.3f, 1f), Random.Range(8, 12));
+                    treeObjectPool3.CreerObject(position, Quaternion.identity);
+                }
+                else if (valeur < 0.5f)
+                {
+                    position = new Vector3((positionDebut.x + Random.Range(0f, size)), (-1) * Random.Range(0.3f, 1f), Random.Range(8, 12));
+                    treeObjectPool2.CreerObject(position, Quaternion.identity);
+                }
+                else if (valeur < 0.8f)
+                {
+                    position = new Vector3((positionDebut.x + Random.Range(0f, size)), (-1) * Random.Range(0.3f, 1f), Random.Range(8, 12));
+                    treeObjectPool.CreerObject(position, Quaternion.identity);
+                }
+                perlinNoiseGenerator.PositionPerlinMap = new Vector2((pos.x + 1) % 256, pos.y);
+            }
 
-                    if (val*10 > 2f)
-                    {
-                        positionNouveauObj = new Vector3(position.x + Random.Range(0,size), Random.Range(0.1f, 1f), Random.Range(0.1f, 1f));
-                        treeObjectPool.CreerObject(other.transform.position, Quaternion.identity);
-                    }
-                }*/
+
+            for (int i = 0; i < 15; i++)
+            {
+                float valeur = perlinNoiseGenerator.ValeurPosition;
+                Vector2 pos = perlinNoiseGenerator.PositionPerlinMap;
+                position = new Vector3((positionDebut.x + Random.Range(0f, size)), (-1) * Random.Range(0.3f, 1f), Random.Range(3, 12));
+                grassObjectPool.CreerObject(position, Quaternion.identity);
+                perlinNoiseGenerator.PositionPerlinMap = new Vector2((pos.x + 1) % 256, pos.y);
+            }
         }
     }
 }

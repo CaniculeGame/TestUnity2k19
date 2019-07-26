@@ -7,7 +7,11 @@ TagManager:
   - Ground
   - GroundEnd
   - GroundBegin
+  - Tree1
+  - Tree2
   - Tree
+  - Tree3
+  - grass
   layers:
   - Default
   - TransparentFX

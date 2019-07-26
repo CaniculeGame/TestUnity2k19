@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4568260420906790}
   - component: {fileID: 33730199074784402}
   - component: {fileID: 23429048093195576}
+  - component: {fileID: -4104139602842188880}
   m_Layer: 0
   m_Name: Larch01
-  m_TagString: Tree
+  m_TagString: Tree3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-4104139602842188880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977261233423868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.955547, y: 16.087543, z: 19.611618}
+  m_Center: {x: -0.093931675, y: 7.439981, z: 0.06397772}
