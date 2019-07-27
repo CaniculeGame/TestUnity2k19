@@ -12,6 +12,8 @@ TagManager:
   - Tree
   - Tree3
   - grass
+  - PlayerCar
+  - PlayerAnimal
   layers:
   - Default
   - TransparentFX

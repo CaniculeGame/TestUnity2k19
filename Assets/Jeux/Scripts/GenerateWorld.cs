@@ -21,7 +21,6 @@ public class GenerateWorld : MonoBehaviour
 
     private PerlinNoiseGenerator perlinNoiseGenerator; // fabrique et concerve une map 2d avec le bruit de perlin 
 
-    public TimeManager timeMnager;    //gestion dsu slow motion 
     
     private GameVar game;
 
@@ -63,25 +62,7 @@ public class GenerateWorld : MonoBehaviour
     
     private void FixedUpdate()
     {
-        /* A DEPLACER DANS GAMEPLAY , ICI ON FAIT QUE LE MONDE  */
-        if (game == null)
-            game = GameVar.DonnerInstance();
 
-        float distanceParcourue = game.DistanceParcourue;
-        if (distanceParcourue > 250 && distanceParcourue  < 255 )
-        {
-            //passage en slowmotion pour tous le monde
-            timeMnager.DoSlowmotion();
-
-            // changement de gameplay
-        }
-        else if (distanceParcourue > 255)
-        {
-            //sortie du slowmotion
-            timeMnager.StopSlowMotion();
-
-            // changement de gameplay
-        }
 
     }
 

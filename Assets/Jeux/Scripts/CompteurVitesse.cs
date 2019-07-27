@@ -7,11 +7,12 @@ public class CompteurVitesse : MonoBehaviour
 {
     private Vector3 lastPosition;
     public float facteurDistance = 1;
+    public Transform referentiel;
 
     // Start is called before the first frame update
     void Start()
     {
-        lastPosition = this.transform.position;
+        lastPosition = referentiel.transform.position;
     }
 
     // Update is called once per frame
@@ -21,11 +22,19 @@ public class CompteurVitesse : MonoBehaviour
     }
 
 
+    public void ChangerReferentiel(Transform nouveauReferentiel)
+    {
+        if (nouveauReferentiel == null)
+            return;
+
+        referentiel = nouveauReferentiel;
+    }
+
     private void CalculDistanceParcourue()
     {
-        float dist = Vector3.Distance(this.transform.position, lastPosition);
+        float dist = Vector3.Distance(referentiel.transform.position, lastPosition);
         GameVar.DonnerInstance().DistanceParcourue += dist * facteurDistance;
-        lastPosition = this.transform.position;
+        lastPosition = referentiel.transform.position;
     }
 
 #if UNITY_EDITOR
@@ -33,7 +42,7 @@ public class CompteurVitesse : MonoBehaviour
     {
 
         string str = "Distance : " + GameVar.DonnerInstance().DistanceParcourue.ToString() + " m";
-        GUI.TextField(new Rect(10, 0, 200, 20), str);
+        GUI.TextField(new Rect(20, 0, 200, 20), str);
 
     }
 #endif

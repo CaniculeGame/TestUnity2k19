@@ -9,20 +9,10 @@ public abstract class Jeu : MonoBehaviour
         SPLASHSCREEN_LOGO = 0,
         MAIN_MENU         = 1,
         GAME              = 2,
-        TOTAL             = 3
+        TOTAL             
     }
 
+    public abstract STATES Executer();
 
-
-    protected static STATES etatCourant;
-
-
-    public Jeu()
-    {
-        etatCourant = STATES.SPLASHSCREEN_LOGO;
-    }
-
-    public abstract void Executer();
-    public static int DonnerEtatCourant { get { return (int)etatCourant; } }
 
 }

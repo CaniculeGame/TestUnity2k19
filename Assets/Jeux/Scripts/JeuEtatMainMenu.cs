@@ -12,13 +12,15 @@ public class JeuEtatMainMenu : Jeu
         Debug.Log("instanciation JeuEtatMainMenu");
     }
 
-    public override void Executer()
+    public override STATES Executer()
     {
         Debug.Log("Executer JeuEtatMainMenu");
         if (instance.DonnerNumeroDuNiveau == (int)Jeu.STATES.GAME)
         {
-            etatCourant = Jeu.STATES.GAME;
             SceneManager.LoadScene(instance.DonnerNumeroDuNiveau); /* changement de niveau */
+            return Jeu.STATES.GAME;
         }
+
+        return Jeu.STATES.MAIN_MENU;
     }
 }

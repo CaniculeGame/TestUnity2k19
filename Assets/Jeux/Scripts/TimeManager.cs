@@ -7,17 +7,42 @@ public class TimeManager : MonoBehaviour
     public float slowdownLengthreprise = 2f;
     private bool slowmotionActivated = false;
 
+    private float oldTimeScale = 0;
+    private bool estEnPause = false;
+
     void Update()
     {
-        if (slowdownLength > 0)
+        if (estEnPause == false)
         {
-            Time.timeScale += (1f / slowdownLength) * Time.unscaledDeltaTime;
-            Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+            if (slowdownLength > 0)
+            {
+                Time.timeScale += (1f / slowdownLength) * Time.unscaledDeltaTime;
+                Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+            }
+            else if (slowmotionActivated == false && slowdownLengthreprise > 0) //reprise du cours normal apres 2 sec
+            {
+                Time.timeScale += (1f / slowdownLengthreprise) * Time.unscaledDeltaTime;
+                Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+            }
         }
-        else if (slowmotionActivated == false && slowdownLengthreprise > 0) //reprise du cours normal apres 2 sec
+    }
+
+    public bool EstEnPause(){return estEnPause;}
+
+    public void Pause()
+    {
+        if (estEnPause == false)
         {
-            Time.timeScale += (1f / slowdownLengthreprise) * Time.unscaledDeltaTime;
-            Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+            Debug.Log("Pause");
+            oldTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+            estEnPause = true;
+        }
+        else if(estEnPause == true)
+        {
+            Debug.Log("UnPause");
+            Time.timeScale = oldTimeScale;
+            estEnPause = false;
         }
     }
 

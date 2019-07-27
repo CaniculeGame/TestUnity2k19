@@ -14,9 +14,10 @@ public class JeuEtatSplashScreen : Jeu
         Debug.Log("instanciation JeuEtatSplashScreen");
     }
 
-    public override void Executer()
+    public override STATES Executer()
     {
         float tpsActu = Time.time;
+        STATES etatCourant = STATES.SPLASHSCREEN_LOGO;
 
         /* si trop d'attente on passe a l'ecran suivant*/
         if (tpsActu > tpsAttenteMax)
@@ -34,6 +35,7 @@ public class JeuEtatSplashScreen : Jeu
         }
 
         Debug.Log("Executer JeuEtatSplashScreen" + tpsActu);
+        return etatCourant;
     }
 
 }

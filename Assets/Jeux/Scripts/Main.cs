@@ -10,6 +10,7 @@ public class Main : MonoBehaviour
 
     private Singleton instance;
     private Jeu[] jeu;
+    private Jeu.STATES etatCourant;
 
     private void Start()
     {
@@ -20,13 +21,13 @@ public class Main : MonoBehaviour
         jeu[(int)Jeu.STATES.MAIN_MENU] = new JeuEtatMainMenu();
         jeu[(int)Jeu.STATES.SPLASHSCREEN_LOGO] = new JeuEtatSplashScreen();
 
-        
+        etatCourant = Jeu.STATES.SPLASHSCREEN_LOGO;
     }
 
 
     private void Update()
     {
-        jeu[Jeu.DonnerEtatCourant].Executer();
+        etatCourant = jeu[(int)etatCourant].Executer();
     }
 
 }

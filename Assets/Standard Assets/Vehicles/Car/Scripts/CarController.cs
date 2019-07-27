@@ -15,7 +15,7 @@ namespace UnityStandardAssets.Vehicles.Car
         MPH,
         KPH
     }
-     
+
     public class CarController : MonoBehaviour
     {
         [SerializeField] private CarDriveType m_CarDriveType = CarDriveType.FourWheelDrive;
@@ -36,7 +36,6 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private float m_RevRangeBoundary = 1f;
         [SerializeField] private float m_SlipLimit;
         [SerializeField] private float m_BrakeTorque;
-
 
         private Quaternion[] m_WheelMeshLocalRotations;
         private Vector3 m_Prevpos, m_Pos;
@@ -239,10 +238,10 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             for (int i = 0; i < 4; i++)
             {
-              /*  WheelHit wheelhit;
+                WheelHit wheelhit;
                 m_WheelColliders[i].GetGroundHit(out wheelhit);
                 if (wheelhit.normal == Vector3.zero)
-                    return; */// wheels arent on the ground so dont realign the rigidbody velocity
+                    return; // wheels arent on the ground so dont realign the rigidbody velocity
             }
 
             // this if is needed to avoid gimbal lock problems that will make the car suddenly shift direction
@@ -338,18 +337,18 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private void AdjustTorque(float forwardSlip)
         {
-           /* if (forwardSlip >= m_SlipLimit && m_CurrentTorque >= 0)
+            if (forwardSlip >= m_SlipLimit && m_CurrentTorque >= 0)
             {
                 m_CurrentTorque -= 10 * m_TractionControl;
             }
             else
-            {*/
+            {
                 m_CurrentTorque += 10 * m_TractionControl;
                 if (m_CurrentTorque > m_FullTorqueOverAllWheels)
                 {
                     m_CurrentTorque = m_FullTorqueOverAllWheels;
                 }
-           // }
+            }
         }
 
 
