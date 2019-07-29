@@ -43,6 +43,7 @@ public class MenuManager : MonoBehaviour
     public void LancerJeu()
     {
         instanceJeu.DonnerNumeroDuNiveau = (int)Jeu.STATES.GAME;
+        GameVar.DonnerInstance().GamePlayState = GameVar.GAME_STATES.GAME_STATES_START;
     }
 
 }

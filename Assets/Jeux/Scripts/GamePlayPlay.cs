@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityTest;
 
-public class GamePlayPlay : MonoBehaviour
+public class GamePlayPlay : GamePlay
 {
-
-    private GameVar game;
-    public TimeManager timeManager;    //gestion dsu slow motion 
-
     private GameVar.PLAYER player = GameVar.PLAYER.PLAYER_CAR;
-
-
+    public GameObject guiCompteur;
 
     private void Start()
     {
@@ -18,9 +14,7 @@ public class GamePlayPlay : MonoBehaviour
 
     private void Update()
     {
-        if (game == null)
-            game = GameVar.DonnerInstance();
-
+        Verification();
         if (game.GamePlayState != GameVar.GAME_STATES.GAME_STATES_PLAY)
             return;
 
@@ -47,6 +41,9 @@ public class GamePlayPlay : MonoBehaviour
 
             // changement de gameplay
         }
+
+        Text txt = guiCompteur.transform.GetComponent<Text>();
+        txt.text = distanceParcourue.ToString("0000000000000") + " m";
     }
 
     /*
@@ -83,11 +80,4 @@ public class GamePlayPlay : MonoBehaviour
         return GAME_STATES.GAME_STATES_PLAY;
     }
     */
-
-
-    private void ChercherTimeManager()
-    {
-        timeManager = GameObject.Find("TimeManager").GetComponent<TimeManager>();
-    }
-
 }

@@ -51,7 +51,14 @@ public class JeuEtatJouer : Jeu
           }
 
           return etatCourant;*/
-        return Jeu.STATES.GAME;
+
+        if (GameVar.DonnerInstance().GamePlayState == GameVar.GAME_STATES.GAME_STATES_QUIT)
+        {
+            instance.DonnerNumeroDuNiveau = 1;
+            return Jeu.STATES.MAIN_MENU;
+        }
+        else
+            return Jeu.STATES.GAME;
     }
 
 

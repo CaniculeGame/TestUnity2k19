@@ -36,7 +36,7 @@ public class CompteurVitesse : MonoBehaviour
         GameVar.DonnerInstance().DistanceParcourue += dist * facteurDistance;
         lastPosition = referentiel.transform.position;
     }
-
+/*
 #if UNITY_EDITOR
     private void OnGUI()
     {
@@ -46,4 +46,5 @@ public class CompteurVitesse : MonoBehaviour
 
     }
 #endif
+*/
 }
