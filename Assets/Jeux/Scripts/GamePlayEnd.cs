@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePlayEnd : GamePlay
+public class GamePlayEnd : MonoBehaviour
 {
-    public override GAME_STATES Executer()
-    {
-       return GAME_STATES.GAME_STATES_END;
-    }
+
 }

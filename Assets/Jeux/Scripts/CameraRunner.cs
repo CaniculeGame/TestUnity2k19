@@ -34,7 +34,7 @@ public class CameraRunner : MonoBehaviour
 
         if (currentPlayer == PLAYER.PLAYER_CAR)
         {
-            transform.position = new Vector3(playerCar.position.x + 6, playerCar.position.y + 4.5f, -10);
+            transform.position = new Vector3(playerCar.position.x + 6, playerCar.position.y + 1.5f, -10);
             road.position = new Vector3(playerCar.position.x, -0.7f, 3);
         }
         else if(currentPlayer == PLAYER.PLAYER_ANIMAL)

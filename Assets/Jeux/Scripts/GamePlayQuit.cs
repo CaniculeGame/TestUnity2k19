@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePlayQuit : GamePlay
+public class GamePlayQuit 
 {
-    public override GAME_STATES Executer()
-    {
-        return GAME_STATES.GAME_STATES_QUIT;
-    }
 
 }

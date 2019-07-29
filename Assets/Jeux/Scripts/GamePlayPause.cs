@@ -1,76 +1,157 @@
-﻿#define DIRECT_SCENE
-using UnityEngine;
+﻿using UnityEngine;
+using UnityTest;
 
 public class GamePlayPause : GamePlay
 {
-    private TimeManager timeManager;
+
+    public GameObject GuiPause;
+    public GameObject GuiGameplayCar;
+    public GameObject GuiGameplayRabbit;
+
+    private void Start()
+    {
+        game = GameVar.DonnerInstance();
+        ChercherTimeManager();
+    }
 
     public GamePlayPause(TimeManager tmManager = null)
     {
         timeManager = tmManager;
     }
 
-    public override GAME_STATES Executer()
+
+
+
+    public void Update()
     {
-        return GererPause();
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (timeManager != null)
+            {
+                // mettre en pause
+                timeManager.Pause();
+
+                if (timeManager.EstEnPause() == true)
+                {
+                    //changement etat
+                    game.GamePlayState = GameVar.GAME_STATES.GAME_STATES_PAUSE;
+                    //activer canvas pause
+                    GuiPause.gameObject.SetActive(true);
+                    GuiGameplayCar.gameObject.SetActive(false);
+                    GuiGameplayRabbit.gameObject.SetActive(false);
+                }
+                else
+                {
+                    //changement etat
+                    game.GamePlayState = GameVar.GAME_STATES.GAME_STATES_PLAY;
+                    //desactive canvas pause
+                    if (game.GamePlay == GameVar.PLAYER.PLAYER_ANIMAL)
+                    {
+                        GuiGameplayCar.gameObject.SetActive(false);
+                        GuiGameplayRabbit.gameObject.SetActive(true);
+                    }
+                    else if (game.GamePlay == GameVar.PLAYER.PLAYER_CAR)
+                    {
+                        GuiGameplayCar.gameObject.SetActive(true);
+                        GuiGameplayRabbit.gameObject.SetActive(false);
+                    }
+                }
+            }   
+        }
     }
 
 
-    private void ChercherTimeManager()
+
+    // action des bouttons
+    public void PauseButton()
     {
-        timeManager = GameObject.Find("TimeManager").GetComponent<TimeManager>();
-    }
+        Debug.Log("PauseButton");
+        Verification();
+        game.GamePlayState = GameVar.GAME_STATES.GAME_STATES_PAUSE;
 
-#if DIRECT_SCENE
-    public void GererUnPause() {
-
-        if (timeManager.EstEnPause() == true)
-            timeManager.Pause();
-     }
-
-    public bool EstEnPause()
-    {
-        if (timeManager == null)
-            ChercherTimeManager();
-        return timeManager.EstEnPause();
-    }
-#endif
-
-
-
-    public GAME_STATES GererPause()
-    {
-        GAME_STATES etat = GAME_STATES.GAME_STATES_PAUSE;
-        if (timeManager == null)
-            ChercherTimeManager();
 
         if (timeManager != null)
         {
             // mettre en pause
             if (timeManager.EstEnPause() == false)
+            {
                 timeManager.Pause();
 
-            //activer canvas pause
+                //activer canvas pause
+                GuiPause.gameObject.SetActive(true);
+                GuiGameplayCar.gameObject.SetActive(false);
+                GuiGameplayRabbit.gameObject.SetActive(false);
+            }
         }
+    }
 
-#if !DIRECT_SCENE
-#if UNITY_EDITOR || UNITY_EDITOR_WIN || UNITY_WEBGL
+    public void ResumeButton()
+    {
+        Debug.Log("ResumeButton");
+        Verification();
+        game.GamePlayState = GameVar.GAME_STATES.GAME_STATES_PLAY;
 
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (timeManager != null)
         {
-            //sortie de pause
+            // mettre en pause
             if (timeManager.EstEnPause() == true)
+            {
                 timeManager.Pause();
 
-            //desactive canvas pause
-
-            etat =  GAME_STATES.GAME_STATES_PLAY;
+                //desactiver canvas pause
+                GuiPause.gameObject.SetActive(false);
+                //activer canvas jeu
+                if (game.GamePlay == GameVar.PLAYER.PLAYER_ANIMAL)
+                {
+                    GuiGameplayCar.gameObject.SetActive(false);
+                    GuiGameplayRabbit.gameObject.SetActive(true);
+                }
+                else if(game.GamePlay == GameVar.PLAYER.PLAYER_CAR)
+                {
+                    GuiGameplayCar.gameObject.SetActive(true);
+                    GuiGameplayRabbit.gameObject.SetActive(false);
+                }
+            }
         }
-#endif
-#endif
-        return etat;
+    }
+
+    public void RetryButton()
+    {
+        Debug.Log("RetryButton");
+        Verification();
+        if (timeManager.EstEnPause() == true)
+            timeManager.Pause();
+
+        game.GamePlayState = GameVar.GAME_STATES.GAME_STATES_START;
     }
 
 
-    // action des bouttons
+    public void TutoButton()
+    {
+        Verification();
+        Debug.Log("TutoButton");
+    }
+
+    public void SoundButton()
+    {
+        Verification();
+        Debug.Log("SoundButton");
+    }
+
+    public void EffectButton()
+    {
+        Verification();
+        Debug.Log("EffectButton");
+    }
+
+
+    public void MainMenuButton()
+    {
+        Debug.Log("MainMenuButton");
+        Verification();
+        game.GamePlayState = GameVar.GAME_STATES.GAME_STATES_QUIT;
+        GuiPause.gameObject.SetActive(false);
+    }
+
+
 }

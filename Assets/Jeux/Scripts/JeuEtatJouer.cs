@@ -13,7 +13,7 @@ public class JeuEtatJouer : Jeu
 
 
     private GamePlay[] gamePlay;
-    private GamePlay.GAME_STATES gamePlayState;
+    private GameVar.GAME_STATES gamePlayState;
 
     public JeuEtatJouer()
    {
@@ -21,7 +21,7 @@ public class JeuEtatJouer : Jeu
         demarrer = false;
         Debug.Log("instanciation JeuEtatJouer");
 
-
+/*
         gamePlay = new GamePlay[(int)GamePlay.GAME_STATES.GAME_STATES_MAX];
         gamePlay[(int)GamePlay.GAME_STATES.GAME_STATES_PLAY]    = new GamePlayPlay();
         gamePlay[(int)GamePlay.GAME_STATES.GAME_STATES_END]     = new GamePlayEnd();
@@ -29,28 +29,29 @@ public class JeuEtatJouer : Jeu
         gamePlay[(int)GamePlay.GAME_STATES.GAME_STATES_QUIT]    = new GamePlayQuit();
         gamePlay[(int)GamePlay.GAME_STATES.GAME_STATES_START]   = new GamePlayStart();
 
-        gamePlayState = GamePlay.GAME_STATES.GAME_STATES_PLAY;
+        gamePlayState = GamePlay.GAME_STATES.GAME_STATES_PLAY;*/
     }
 
     public override STATES Executer()
     {
-        STATES etatCourant = STATES.GAME;
+        /*  STATES etatCourant = STATES.GAME;
 
-        switch (instance.DonnerNumeroDuNiveau)
-        {
-            case (int)Jeu.STATES.MAIN_MENU:
-                etatCourant = GoMainMenu();
-                break;
+          switch (instance.DonnerNumeroDuNiveau)
+          {
+              case (int)Jeu.STATES.MAIN_MENU:
+                  etatCourant = GoMainMenu();
+                  break;
 
-             case (int)Jeu.STATES.GAME:
-                gamePlayState = gamePlay[(int)gamePlayState].Executer();
-                break;
+               case (int)Jeu.STATES.GAME:
+                  gamePlayState = gamePlay[(int)gamePlayState].Executer();
+                  break;
 
-            default:
-                break;
-        }
+              default:
+                  break;
+          }
 
-        return etatCourant;
+          return etatCourant;*/
+        return Jeu.STATES.GAME;
     }
 
 
