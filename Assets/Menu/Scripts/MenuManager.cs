@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityTest;
+using UnityEngine.UI;
+using System;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject CustomCarMenu;
     public GameObject CustomCharMenu;
     public GameObject CustomAnimalsMenu;
+    public GameObject HightScoreMenu;
 
     private Singleton instanceJeu;
 
@@ -22,8 +23,15 @@ public class MenuManager : MonoBehaviour
         CustomCarMenu.SetActive(false);
         CustomCharMenu.SetActive(false);
         CustomAnimalsMenu.SetActive(false);
+        HightScoreMenu.SetActive(false);
 
         instanceJeu = Singleton.DonnerInstance;
+        RafraichirLangue();
+    }
+
+    public void RafraichirLangue()
+    {
+        RafraichirGUI();
     }
 
 
@@ -34,6 +42,7 @@ public class MenuManager : MonoBehaviour
         CustomCarMenu.SetActive(false);
         CustomCharMenu.SetActive(false);
         CustomAnimalsMenu.SetActive(false);
+        HightScoreMenu.SetActive(false);
     }
 
     public void AfficherOptionMenu()
@@ -43,6 +52,7 @@ public class MenuManager : MonoBehaviour
         CustomCharMenu.SetActive(false);
         CustomAnimalsMenu.SetActive(false);
         OptionMenu.SetActive(true);
+        HightScoreMenu.SetActive(false);
     }
 
     public void AfficherCustomCarMenu()
@@ -52,6 +62,7 @@ public class MenuManager : MonoBehaviour
         CustomCharMenu.SetActive(false);
         CustomAnimalsMenu.SetActive(false);
         OptionMenu.SetActive(false);
+        HightScoreMenu.SetActive(false);
     }
 
 
@@ -62,6 +73,17 @@ public class MenuManager : MonoBehaviour
         CustomCharMenu.SetActive(false);
         CustomAnimalsMenu.SetActive(true);
         OptionMenu.SetActive(false);
+        HightScoreMenu.SetActive(false);
+    }
+
+    public void AfficherHightScorelMenu()
+    {
+        MainMenu.SetActive(false);
+        CustomCarMenu.SetActive(false);
+        CustomCharMenu.SetActive(false);
+        CustomAnimalsMenu.SetActive(false);
+        OptionMenu.SetActive(false);
+        HightScoreMenu.SetActive(true);
     }
 
 
@@ -72,23 +94,170 @@ public class MenuManager : MonoBehaviour
         CustomCharMenu.SetActive(true);
         CustomAnimalsMenu.SetActive(false);
         OptionMenu.SetActive(false);
+        HightScoreMenu.SetActive(false);
     }
+
+    public void ChangerLangue(int langue)
+    {
+        if ((Dictionnaires.LANGUES)langue == Dictionnaires.Dictionnaire.DonnerLangue)
+            return;
+
+        Dictionnaires.Dictionnaire.ChangerLangue((Dictionnaires.LANGUES)langue);
+        RafraichirGUI();
+    }
+
+    private void RafraichirGUI()
+    {
+        RafraichirGuiOption();
+        RafraichirGuiCustomCar();
+        RafraichirGuiCustomAnimal();
+        RafraichirGuiCustomChar();
+        RafraichirGuiCustomHightScore();
+    }
+
+    private void RafraichirGuiOption()
+    {
+        bool activated = true;
+
+        // le dico avec la bonne langue
+        Dictionnaires dico = Dictionnaires.Dictionnaire;
+
+        //changer langue de toutes les interfaces
+        if (PlayerPrefs.HasKey("sound"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("sound"));
+        else
+            PlayerPrefs.SetInt("sound", Convert.ToInt32(activated));
+
+
+        if (activated)
+            OptionMenu.transform.GetChild(3).GetChild(0).GetComponentInChildren<Text>().text = dico.DonnerMot("Sound") + ":" + dico.DonnerMot("On");
+        else
+            OptionMenu.transform.GetChild(3).GetChild(0).GetComponentInChildren<Text>().text = dico.DonnerMot("Sound") + ":" + dico.DonnerMot("Off");
+
+
+        if (PlayerPrefs.HasKey("effect"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("effect"));
+        else
+            PlayerPrefs.SetInt("effect", Convert.ToInt32(activated));
+
+        if (activated)
+            OptionMenu.transform.GetChild(3).GetChild(1).GetComponentInChildren<Text>().text = dico.DonnerMot("Effect") + ":" + dico.DonnerMot("On");
+        else
+            OptionMenu.transform.GetChild(3).GetChild(1).GetComponentInChildren<Text>().text = dico.DonnerMot("Effect") + ":" + dico.DonnerMot("Off");
+
+
+        if (PlayerPrefs.HasKey("tuto"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("tuto"));
+        else
+            PlayerPrefs.SetInt("tuto", Convert.ToInt32(activated));
+
+        if (activated)
+            OptionMenu.transform.GetChild(3).GetChild(2).GetComponentInChildren<Text>().text = dico.DonnerMot("Tuto") + ":" + dico.DonnerMot("On");
+        else
+            OptionMenu.transform.GetChild(3).GetChild(2).GetComponentInChildren<Text>().text = dico.DonnerMot("Tuto") + ":" + dico.DonnerMot("Off");
+
+        OptionMenu.transform.GetChild(3).GetChild(3).GetComponentInChildren<Text>().text = dico.DonnerMot("Quit");
+        OptionMenu.transform.GetChild(0).GetComponentInChildren<Text>().text = dico.DonnerMot("Options");
+
+
+        PlayerPrefs.Save();
+
+    }
+
+    private void RafraichirGuiMainMenu()
+    {
+
+    }
+
+    private void RafraichirGuiCustomCar() { }
+    private void RafraichirGuiCustomAnimal() { }
+    private void RafraichirGuiCustomChar() { }
+    private void RafraichirGuiCustomHightScore() { }
+
 
     public void QuitterJeu()
    {
-        Debug.Log("Quitter");
         Application.Quit(0);
    }
 
     public void LancerJeu()
     {
-        Debug.Log("test");
         instanceJeu.DonnerNumeroDuNiveau = (int)Jeu.STATES.GAME;
         GameVar.DonnerInstance().GamePlayState = GameVar.GAME_STATES.GAME_STATES_START;
         OptionMenu.SetActive(false);
         CustomCarMenu.SetActive(false);
         CustomCharMenu.SetActive(false);
         CustomAnimalsMenu.SetActive(false);
+        HightScoreMenu.SetActive(false);
+    }
+
+
+    public void SwitchSound(Transform obj)
+    {
+        bool activated = true;
+
+        if (PlayerPrefs.HasKey("sound"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("sound"));
+
+        /* switch*/
+        activated = !activated;
+        PlayerPrefs.SetInt("sound", Convert.ToInt32(activated));
+        PlayerPrefs.Save();
+
+        /* maj gui */
+        if (activated)
+            obj.GetComponentInChildren<Text>().text = 
+                Dictionnaires.Dictionnaire.DonnerMot("Sound") + ":" + Dictionnaires.Dictionnaire.DonnerMot("On");
+        else
+            obj.GetComponentInChildren<Text>().text
+                = Dictionnaires.Dictionnaire.DonnerMot("Sound") + ":" + Dictionnaires.Dictionnaire.DonnerMot("Off");
+    }
+
+    public void SwitchEffect(Transform obj)
+    {
+        bool activated = true;
+
+        if (PlayerPrefs.HasKey("effect"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("effect"));
+
+        /* switch*/
+        activated = !activated;
+        PlayerPrefs.SetInt("effect", Convert.ToInt32(activated));
+        PlayerPrefs.Save();
+
+
+        /* maj gui */
+        if (activated)
+            obj.GetComponentInChildren<Text>().text =
+                Dictionnaires.Dictionnaire.DonnerMot("Effect") + ":" + Dictionnaires.Dictionnaire.DonnerMot("On");
+        else
+            obj.GetComponentInChildren<Text>().text
+                = Dictionnaires.Dictionnaire.DonnerMot("Effect") + ":" + Dictionnaires.Dictionnaire.DonnerMot("Off");
+
+    }
+
+    public void SwitchTuto(Transform obj)
+    {
+        bool activated = true;
+
+        if (PlayerPrefs.HasKey("tuto"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("tuto"));
+
+
+        /* switch*/
+        activated = !activated;
+        PlayerPrefs.SetInt("tuto", Convert.ToInt32(activated));
+        PlayerPrefs.Save();
+
+
+        /* maj gui */
+        if (activated)
+            obj.GetComponentInChildren<Text>().text =
+                Dictionnaires.Dictionnaire.DonnerMot("Tuto") + ":" + Dictionnaires.Dictionnaire.DonnerMot("On");
+        else
+            obj.GetComponentInChildren<Text>().text
+                = Dictionnaires.Dictionnaire.DonnerMot("Tuto") + ":" + Dictionnaires.Dictionnaire.DonnerMot("Off");
+
     }
 
 }

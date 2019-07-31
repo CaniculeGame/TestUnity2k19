@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dico >
+  <mots langue="EN">
+    <mot key="Options">
+      <motDico>Options</motDico>
+    </mot>
+    <mot key="MainMenu">
+      <motDico>Main Menu</motDico>
+    </mot>
+    <mot key="CustomPerso">
+      <motDico>Custom Character</motDico>
+    </mot>
+    <mot key="CustomCar">
+      <motDico>Custom GogolCar</motDico>
+    </mot>
+    <mot key="CustomAnimal">
+      <motDico>Custom Pet</motDico>
+    </mot>
+    <mot key="HightScore">
+      <motDico>Hight Score</motDico>
+    </mot>
+    <mot key="Quit">
+      <motDico>Quit</motDico>
+    </mot>
+    <mot key="Play">
+      <motDico>Play</motDico>
+    </mot>
+    <mot key="ChoosePet">
+      <motDico>Choose Your Pet</motDico>
+    </mot>
+    <mot key="ChooseCar">
+      <motDico>Choose Your GogolCar</motDico>
+    </mot>
+    <mot key="ChooseChar">
+      <motDico>Choose Your Driver</motDico>
+    </mot>
+    <mot key="Back">
+      <motDico>Back</motDico>
+    </mot>
+    <mot key="Sound">
+      <motDico>Sound</motDico>
+    </mot>
+    <mot key="Effect">
+      <motDico>Effect</motDico>
+    </mot>
+    <mot key="On">
+      <motDico>On</motDico>
+    </mot>
+    <mot key="Off">
+      <motDico>Off</motDico>
+    </mot>
+    <mot key="Tutorial">
+      <motDico>Tutorial</motDico>
+    </mot>
+    <mot key="Tuto">
+      <motDico>Tuto</motDico>
+    </mot>
+    <mot key="Pause">
+      <motDico>Pause</motDico>
+    </mot>
+    <mot key="Retry">
+      <motDico>Retry</motDico>
+    </mot>
+    <mot key="Resume">
+      <motDico>Resume</motDico>
+    </mot>
+    <mot key="GameOver">
+      <motDico>Game Over</motDico>
+    </mot>
+  </mots>
+</dico>
