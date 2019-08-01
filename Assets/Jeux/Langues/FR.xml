@@ -67,5 +67,8 @@
       <mot key="GameOver">
         <motDico>Jeu Fini</motDico>
       </mot>
+      <mot key="EarthTour">
+        <motDico>Tours Du Monde</motDico>
+      </mot>
     </mots>  
 </dico>  

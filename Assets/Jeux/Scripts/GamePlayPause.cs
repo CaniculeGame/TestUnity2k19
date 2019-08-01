@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityTest;
+using UnityEngine.UI;
+using System;
 
 public class GamePlayPause : GamePlay
 {
@@ -12,6 +14,36 @@ public class GamePlayPause : GamePlay
     {
         game = GameVar.DonnerInstance();
         ChercherTimeManager();
+
+        /* maj gui text */
+        Dictionnaires dico = Dictionnaires.Dictionnaire;
+        Transform objIntermediaire = GuiPause.transform.GetChild(0);//BG
+        objIntermediaire.GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Pause");
+        objIntermediaire = objIntermediaire.GetChild(1); // BG BUTTON
+        objIntermediaire.GetChild(0).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Resume");
+        objIntermediaire.GetChild(1).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Retry");
+        objIntermediaire.GetChild(5).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("MainMenu");
+
+
+        bool activated = true;
+        activated = Convert.ToBoolean(PlayerPrefs.GetInt("tuto"));
+        if (activated)
+            objIntermediaire.GetChild(2).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Tuto") + ":" + dico.DonnerMot("On");
+        else
+            objIntermediaire.GetChild(2).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Tuto") + ":" + dico.DonnerMot("Off");
+
+        activated = Convert.ToBoolean(PlayerPrefs.GetInt("sound"));
+        if (activated)
+            objIntermediaire.GetChild(3).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Sound") + ":" + dico.DonnerMot("On");
+        else
+            objIntermediaire.GetChild(3).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Sound") + ":" + dico.DonnerMot("Off");
+
+        activated = Convert.ToBoolean(PlayerPrefs.GetInt("effect"));
+        if (activated)
+            objIntermediaire.GetChild(4).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Effect") + ":" + dico.DonnerMot("On");
+        else
+            objIntermediaire.GetChild(4).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Effect") + ":" + dico.DonnerMot("Off");
+
     }
 
     public GamePlayPause(TimeManager tmManager = null)
@@ -126,22 +158,79 @@ public class GamePlayPause : GamePlay
     }
 
 
-    public void TutoButton()
+    public void TutoButton(Transform obj)
     {
         Verification();
         Debug.Log("TutoButton");
+
+        bool activated = true;
+
+        if (PlayerPrefs.HasKey("tuto"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("tuto"));
+
+
+        /* switch*/
+        activated = !activated;
+        PlayerPrefs.SetInt("tuto", Convert.ToInt32(activated));
+        PlayerPrefs.Save();
+
+
+        /* maj gui */
+        if (activated)
+            obj.GetComponentInChildren<Text>().text =
+                Dictionnaires.Dictionnaire.DonnerMot("Tuto") + ":" + Dictionnaires.Dictionnaire.DonnerMot("On");
+        else
+            obj.GetComponentInChildren<Text>().text
+                = Dictionnaires.Dictionnaire.DonnerMot("Tuto") + ":" + Dictionnaires.Dictionnaire.DonnerMot("Off");
     }
 
-    public void SoundButton()
+    public void SoundButton(Transform obj)
     {
         Verification();
         Debug.Log("SoundButton");
+
+        bool activated = true;
+
+        if (PlayerPrefs.HasKey("sound"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("sound"));
+
+        /* switch*/
+        activated = !activated;
+        PlayerPrefs.SetInt("sound", Convert.ToInt32(activated));
+        PlayerPrefs.Save();
+
+        /* maj gui */
+        if (activated)
+            obj.GetComponentInChildren<Text>().text =
+                Dictionnaires.Dictionnaire.DonnerMot("Sound") + ":" + Dictionnaires.Dictionnaire.DonnerMot("On");
+        else
+            obj.GetComponentInChildren<Text>().text
+                = Dictionnaires.Dictionnaire.DonnerMot("Sound") + ":" + Dictionnaires.Dictionnaire.DonnerMot("Off");
     }
 
-    public void EffectButton()
+    public void EffectButton(Transform obj)
     {
         Verification();
         Debug.Log("EffectButton");
+
+        bool activated = true;
+
+        if (PlayerPrefs.HasKey("effect"))
+            activated = Convert.ToBoolean(PlayerPrefs.GetInt("effect"));
+
+        /* switch*/
+        activated = !activated;
+        PlayerPrefs.SetInt("effect", Convert.ToInt32(activated));
+        PlayerPrefs.Save();
+
+
+        /* maj gui */
+        if (activated)
+            obj.GetComponentInChildren<Text>().text =
+                Dictionnaires.Dictionnaire.DonnerMot("Effect") + ":" + Dictionnaires.Dictionnaire.DonnerMot("On");
+        else
+            obj.GetComponentInChildren<Text>().text
+                = Dictionnaires.Dictionnaire.DonnerMot("Effect") + ":" + Dictionnaires.Dictionnaire.DonnerMot("Off");
     }
 
 

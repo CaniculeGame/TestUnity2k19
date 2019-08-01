@@ -4,6 +4,7 @@ using UnityTest;
 
 public class GamePlayPlay : GamePlay
 {
+    private int distanceTourMonde = 40010000; //m
     private GameVar.PLAYER player = GameVar.PLAYER.PLAYER_CAR;
     public GameObject guiCompteur;
 
@@ -19,6 +20,7 @@ public class GamePlayPlay : GamePlay
             return;
 
         float distanceParcourue = game.DistanceParcourue;
+        int tourEffectue = Mathf.RoundToInt(distanceParcourue)/ distanceTourMonde;
         if (distanceParcourue > 250 && distanceParcourue < 255)
         {
             //passage en slowmotion pour tous le monde
@@ -44,6 +46,7 @@ public class GamePlayPlay : GamePlay
 
         Text txt = guiCompteur.transform.GetComponent<Text>();
         txt.text = distanceParcourue.ToString("0000000000000") + " m";
+        txt.text += "\n" + tourEffectue.ToString("000") +" "+Dictionnaires.Dictionnaire.DonnerMot("EarthTour");
     }
 
     /*

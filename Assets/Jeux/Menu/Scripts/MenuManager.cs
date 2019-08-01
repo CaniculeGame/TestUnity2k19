@@ -304,18 +304,27 @@ public class MenuManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("PersoId",id);
         PlayerPrefs.Save();
+        Debug.Log("ChoosePerso " + id);
+
+        //changer background
     }
 
     public void ChoosePet(int id)
     {
         PlayerPrefs.SetInt("PetId", id);
         PlayerPrefs.Save();
+        Debug.Log("ChoosePet " + id);
+
+        //changer background
     }
 
     public void ChooseCar(int id)
     {
         PlayerPrefs.SetInt("CarId", id);
         PlayerPrefs.Save();
+        Debug.Log("ChooseCar " + id);
+
+        //changer background
     }
 
 }
