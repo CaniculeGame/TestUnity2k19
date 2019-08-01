@@ -7,6 +7,7 @@ public class GamePlayPlay : GamePlay
     private int distanceTourMonde = 40010000; //m
     private GameVar.PLAYER player = GameVar.PLAYER.PLAYER_CAR;
     public GameObject guiCompteur;
+    public GameObject guiMain;
 
     private void Start()
     {
@@ -47,40 +48,20 @@ public class GamePlayPlay : GamePlay
         Text txt = guiCompteur.transform.GetComponent<Text>();
         txt.text = distanceParcourue.ToString("0000000000000") + " m";
         txt.text += "\n" + tourEffectue.ToString("000") +" "+Dictionnaires.Dictionnaire.DonnerMot("EarthTour");
+
+        switch (game.GamePlay)
+        {
+            case GameVar.PLAYER.PLAYER_ANIMAL:
+                guiMain.transform.GetChild(2).gameObject.SetActive(false);
+                guiMain.transform.GetChild(3).gameObject.SetActive(true);
+                break;
+
+            case GameVar.PLAYER.PLAYER_CAR:
+                guiMain.transform.GetChild(2).gameObject.SetActive(true);
+                guiMain.transform.GetChild(3).gameObject.SetActive(false);
+                break;
+        }
     }
 
-    /*
-    public override GAME_STATES Executer()
-    {
-        if (game == null)
-            game = GameVar.DonnerInstance();
-
-
-        float distanceParcourue = game.DistanceParcourue;
-        if (distanceParcourue > 250 && distanceParcourue < 255)
-        {
-            //passage en slowmotion pour tous le monde
-            if (timeManager == null)
-                ChercherTimeManager();
-
-            timeManager.DoSlowmotion();
-
-
-            // changement de gameplay
-        }
-        else if (distanceParcourue > 255)
-        {
-            if (timeManager == null)
-                ChercherTimeManager();
-
-            //sortie du slowmotion
-            timeManager.StopSlowMotion();
-
-
-            // changement de gameplay
-        }
-
-        return GAME_STATES.GAME_STATES_PLAY;
-    }
-    */
+  
 }

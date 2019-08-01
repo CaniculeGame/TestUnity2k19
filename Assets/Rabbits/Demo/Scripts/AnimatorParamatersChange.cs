@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityTest;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
 
@@ -11,11 +10,13 @@ namespace FiveRabbitsDemo
         private string[] m_buttonNames = new string[] { "Idle", "Run", "Dead" };
 
         public Animator m_animator;
+        public Camera camera;
+        private bool uneFois = false;
 
         // Use this for initialization
         void Start()
         {
-
+            Reinitialiser();
         }
 
         // Update is called once per frame
@@ -24,17 +25,24 @@ namespace FiveRabbitsDemo
 
         }
 
+        public void  Reinitialiser()
+        {
+            uneFois = false;
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
-            if(collision.collider.tag == "PlayerCar")
+            if(collision.collider.tag == "PlayerCar" && uneFois == false )
             {
                 // desactive le control de la voiture
                 collision.collider.GetComponentInParent<CarUserControl>().enabled = false;
                 collision.collider.GetComponentInParent<CarController>().enabled = false;
 
                 // passage du playerCar a playerAnimal
-                Camera.current.GetComponent<CameraRunner>().SwitchPlayer();
-                Camera.current.GetComponent<CompteurVitesse>().ChangerReferentiel(this.transform);
+
+                camera.GetComponent<CompteurVitesse>().ChangerReferentiel(this.transform);
+                camera.GetComponent<CameraRunner>().SwitchPlayer();
+                uneFois = true;
             }
         }
 
