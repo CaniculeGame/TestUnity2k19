@@ -108,6 +108,7 @@ public class MenuManager : MonoBehaviour
 
     private void RafraichirGUI()
     {
+        RafraichirGuiMainMenu();
         RafraichirGuiOption();
         RafraichirGuiCustomCar();
         RafraichirGuiCustomAnimal();
@@ -166,13 +167,54 @@ public class MenuManager : MonoBehaviour
 
     private void RafraichirGuiMainMenu()
     {
+        // le dico avec la bonne langue
+        Dictionnaires dico = Dictionnaires.Dictionnaire;
 
+        MainMenu.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Options");
+        MainMenu.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("CustomPerso");
+        MainMenu.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("CustomAnimal");
+        MainMenu.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("CustomCar");
+        MainMenu.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Play");
+        MainMenu.transform.GetChild(5).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("HightScore");
+        MainMenu.transform.GetChild(6).GetChild(0).GetComponent<Text>().text = dico.DonnerMot("Quit");
     }
 
-    private void RafraichirGuiCustomCar() { }
-    private void RafraichirGuiCustomAnimal() { }
-    private void RafraichirGuiCustomChar() { }
-    private void RafraichirGuiCustomHightScore() { }
+    private void RafraichirGuiCustomCar()
+    {
+        // le dico avec la bonne langue
+        Dictionnaires dico = Dictionnaires.Dictionnaire;
+
+        CustomCarMenu.transform.GetChild(0).GetComponent<Text>().text = dico.DonnerMot("ChooseCar");
+    }
+
+    private void RafraichirGuiCustomAnimal()
+    {
+        // le dico avec la bonne langue
+        Dictionnaires dico = Dictionnaires.Dictionnaire;
+
+        CustomAnimalsMenu.transform.GetChild(0).GetComponent<Text>().text = dico.DonnerMot("ChoosePet");
+    }
+
+
+    private void RafraichirGuiCustomChar()
+    {
+        // le dico avec la bonne langue
+        Dictionnaires dico = Dictionnaires.Dictionnaire;
+
+        CustomCharMenu.transform.GetChild(0).GetComponent<Text>().text = dico.DonnerMot("ChooseChar");
+    }
+
+
+
+
+
+    private void RafraichirGuiCustomHightScore()
+    {
+        // le dico avec la bonne langue
+        Dictionnaires dico = Dictionnaires.Dictionnaire;
+
+        HightScoreMenu.transform.GetChild(0).GetComponent<Text>().text = dico.DonnerMot("HightScore");
+    }
 
 
     public void QuitterJeu()
