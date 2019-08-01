@@ -205,9 +205,6 @@ public class MenuManager : MonoBehaviour
     }
 
 
-
-
-
     private void RafraichirGuiCustomHightScore()
     {
         // le dico avec la bonne langue
@@ -300,6 +297,25 @@ public class MenuManager : MonoBehaviour
             obj.GetComponentInChildren<Text>().text
                 = Dictionnaires.Dictionnaire.DonnerMot("Tuto") + ":" + Dictionnaires.Dictionnaire.DonnerMot("Off");
 
+    }
+
+
+    public void ChoosePerso(int id)
+    {
+        PlayerPrefs.SetInt("PersoId",id);
+        PlayerPrefs.Save();
+    }
+
+    public void ChoosePet(int id)
+    {
+        PlayerPrefs.SetInt("PetId", id);
+        PlayerPrefs.Save();
+    }
+
+    public void ChooseCar(int id)
+    {
+        PlayerPrefs.SetInt("CarId", id);
+        PlayerPrefs.Save();
     }
 
 }
