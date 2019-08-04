@@ -10,26 +10,8 @@ namespace FiveRabbitsDemo
         private string[] m_buttonNames = new string[] { "Idle", "Run", "Dead" };
 
         public Animator m_animator;
-        public Camera camera;
-        private bool uneFois = false;
 
-        // Use this for initialization
-        void Start()
-        {
-            Reinitialiser();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        public void  Reinitialiser()
-        {
-            uneFois = false;
-        }
-
+        /*
         private void OnCollisionEnter(Collision collision)
         {
             if(collision.collider.tag == "PlayerCar" && uneFois == false )
@@ -45,7 +27,7 @@ namespace FiveRabbitsDemo
                 uneFois = true;
             }
         }
-
+        */
         private void OnGUI()
         {
             GUI.BeginGroup(new Rect(0, 25, 150, 1000));

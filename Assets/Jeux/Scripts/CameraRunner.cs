@@ -44,6 +44,7 @@ public class CameraRunner : MonoBehaviour
     public void ReinitialiserPlayer()
     {
         currentPlayer = GameVar.PLAYER.PLAYER_CAR;
+        this.transform.position = new Vector3(0, 5, 0);
     }
 
 

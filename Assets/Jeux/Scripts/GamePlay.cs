@@ -7,6 +7,8 @@ public abstract class GamePlay : MonoBehaviour
     protected GameVar game;
 
 
+    public abstract void Initialiser();
+
     protected void ChercherTimeManager()
     {
         timeManager = GameObject.Find("TimeManager").GetComponent<TimeManager>();

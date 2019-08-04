@@ -36,15 +36,5 @@ public class CompteurVitesse : MonoBehaviour
         GameVar.DonnerInstance().DistanceParcourue += dist * facteurDistance;
         lastPosition = referentiel.transform.position;
     }
-/*
-#if UNITY_EDITOR
-    private void OnGUI()
-    {
 
-        string str = "Distance : " + GameVar.DonnerInstance().DistanceParcourue.ToString() + " m";
-        GUI.TextField(new Rect(20, 0, 200, 20), str);
-
-    }
-#endif
-*/
 }

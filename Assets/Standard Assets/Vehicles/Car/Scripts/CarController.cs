@@ -363,5 +363,11 @@ namespace UnityStandardAssets.Vehicles.Car
             }
             return false;
         }
+
+
+        private void Acceleration()
+        {
+
+        }
     }
 }

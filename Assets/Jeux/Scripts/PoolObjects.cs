@@ -27,7 +27,6 @@ public class PoolObjects : MonoBehaviour
         obj.SetActive(false);
         // mettre obj dans piscine
         stackObj.Push(obj);
-        //Destroy(obj);
     }
 
 

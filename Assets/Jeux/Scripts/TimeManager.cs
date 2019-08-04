@@ -27,6 +27,13 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    public void Initialiser()
+    {
+        estEnPause = false;
+        Time.timeScale = 1;
+        slowmotionActivated = false;
+    }
+
     public bool EstEnPause(){return estEnPause;}
 
     public void Pause()

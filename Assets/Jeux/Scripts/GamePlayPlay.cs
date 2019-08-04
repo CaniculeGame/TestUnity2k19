@@ -24,9 +24,6 @@ public class GamePlayPlay : GamePlay
         int tourEffectue = Mathf.RoundToInt(distanceParcourue)/ distanceTourMonde;
         if (distanceParcourue > 250 && distanceParcourue < 255)
         {
-            //passage en slowmotion pour tous le monde
-            if (timeManager == null)
-                ChercherTimeManager();
 
             timeManager.DoSlowmotion();
 
@@ -35,9 +32,6 @@ public class GamePlayPlay : GamePlay
         }
         else if (distanceParcourue > 255)
         {
-            if (timeManager == null)
-                ChercherTimeManager();
-
             //sortie du slowmotion
             timeManager.StopSlowMotion();
 
@@ -63,5 +57,8 @@ public class GamePlayPlay : GamePlay
         }
     }
 
-  
+    public override void Initialiser()
+    {
+        throw new System.NotImplementedException();
+    }
 }

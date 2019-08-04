@@ -6,6 +6,11 @@ using UnityTest;
 
 public class GamePlayQuit : GamePlay
 {
+    public override void Initialiser()
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void Update()
     {
         Verification();

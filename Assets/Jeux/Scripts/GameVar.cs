@@ -49,9 +49,12 @@ namespace UnityTest
             Initialiser();
         }
 
-        private void Initialiser()
+        public void Initialiser()
         {
             distanceParcourue = 0;
+            gamePlay = GameVar.PLAYER.PLAYER_CAR;
+            gamegamePlayState = GameVar.GAME_STATES.GAME_STATES_START;
+            gameState = State.STATE_CAR;
         }
 
 

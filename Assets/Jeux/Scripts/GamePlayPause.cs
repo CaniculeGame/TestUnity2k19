@@ -242,5 +242,8 @@ public class GamePlayPause : GamePlay
         GuiPause.gameObject.SetActive(false);
     }
 
-
+    public override void Initialiser()
+    {
+        throw new NotImplementedException();
+    }
 }

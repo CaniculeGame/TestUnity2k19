@@ -56,26 +56,30 @@ public class GenerateWorld : MonoBehaviour
         perlinNoiseGenerator = new PerlinNoiseGenerator();
         perlinNoiseGenerator.Echelle = 99f;
         perlinNoiseGenerator.CalculatePerlinNoise();
-
-    }
-
-    
-    private void FixedUpdate()
-    {
-
-
     }
 
 
-
-
-    void OnTriggerExit(Collider other)
+    public void Initialiser()
     {
-        if(other.tag == "GroundEnd")
+        // "detruire" tous les objets affiché
+        foreach(Transform go in groundParent.GetComponentInChildren<Transform>())
+        {
+            SupprimerObjet(go.gameObject);
+        }
+
+        // place le premier
+        groundObjectPool.CreerObject(new Vector3(0, -0.5f, 3), Quaternion.identity);
+
+    }
+
+
+    private void SupprimerObjet(GameObject other)
+    {
+        if (other.tag == "GroundEnd")
         {
             groundObjectPool.SupprimerObject(other.transform.parent.gameObject); // ground end est fils
         }
-        else if(other.tag == "Tree1")
+        else if (other.tag == "Tree1")
         {
             treeObjectPool.SupprimerObject(other.gameObject); // tree est deja le parent
         }
@@ -91,7 +95,16 @@ public class GenerateWorld : MonoBehaviour
         {
             grassObjectPool.SupprimerObject(other.gameObject); // grass est deja le parent
         }
+        else if (other.tag == "PlayerCar")
+        {
+            other.transform.gameObject.SetActive(false);
+        }
+    }
 
+
+    void OnTriggerExit(Collider other)
+    {
+        SupprimerObjet(other.gameObject);
     }
 
 
