@@ -4198,6 +4198,7 @@ MonoBehaviour:
   rabbit: {fileID: 1499374578}
   car: {fileID: 1280705971}
   camera: {fileID: 1404265503}
+  world: {fileID: 872319881}
   st: 0
 --- !u!4 &1879193988
 Transform:

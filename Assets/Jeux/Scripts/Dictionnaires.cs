@@ -3,6 +3,7 @@ using System.Xml;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Dictionnaires 
 {
@@ -79,12 +80,15 @@ public class Dictionnaires
         document = new XmlDocument();
         try
         {
-#if !UNITY_EDITOR
-            path = Application.persistentDataPath +"/"+langueCourante.ToString();
-#else
-            path = Application.dataPath + "/Jeux/Langues/" + langueCourante.ToString()+".xml";
-#endif
+#if UNITY_EDITOR
+            path = Application.dataPath + "/Resources/Langues/" + langueCourante.ToString() + ".xml";
             document.Load(path);
+#elif UNITY_ANDROID
+            path = "Langues/" + langueCourante.ToString();
+            TextAsset textFile = Resources.Load<TextAsset>(path);
+            document.LoadXml(textFile.text.ToString());
+
+#endif
         }
         catch (Exception e)
         {
