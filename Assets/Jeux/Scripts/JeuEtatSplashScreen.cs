@@ -24,7 +24,7 @@ public class JeuEtatSplashScreen : Jeu
             etatCourant = STATES.MAIN_MENU;
 
         /* si appui n'importe quel touche on passe a l'ecran suivant*/
-        if (Input.anyKey)
+        if (Input.anyKey || Input.touchCount >0)
             etatCourant = STATES.MAIN_MENU;
 
         if (etatCourant != STATES.SPLASHSCREEN_LOGO)
