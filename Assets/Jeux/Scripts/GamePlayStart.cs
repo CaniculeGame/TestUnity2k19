@@ -47,6 +47,8 @@ public class GamePlayStart : GamePlay
         guiRabbit.gameObject.SetActive(false);
         guiTuTo.gameObject.SetActive(false);
         guiGeneral.gameObject.SetActive(false);
+        guiCar.transform.GetChild(0).gameObject.SetActive(false);
+        guiCar.transform.GetChild(2).gameObject.SetActive(true);
         guiCar.gameObject.SetActive(false);
 
         game.Initialiser();

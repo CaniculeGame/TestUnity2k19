@@ -12,10 +12,12 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private bool rightButton = false;
         private bool leftButton  = false;
+        private bool footBrake = false;
 
         private void Start()
         {
             leftTouch = false;
+            footBrake = false;
         }
 
         private void Awake()
@@ -32,6 +34,8 @@ namespace UnityStandardAssets.Vehicles.Car
             this.GetComponent<CarUserControl>().enabled = true;
             this.GetComponent<CarController>().enabled = true;
             this.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+            footBrake = false;
+            leftTouch = false;
         }
 
         private void FixedUpdate()
@@ -80,9 +84,17 @@ namespace UnityStandardAssets.Vehicles.Car
                 rightButton = false;
             }
 
+            h = 1;
+            if (footBrake)
+                m_Car.Move(0f, 0, 0, 1f);
+            else
+                m_Car.Move(0f, h, 0f, 0f);
 
-            m_Car.Move(0f, h, h, 0f);
+        }
 
+        public void BrakeButton()
+        {
+            footBrake = !footBrake;
         }
 
         public void GuiController(Transform guiElem)

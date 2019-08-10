@@ -151,7 +151,10 @@ namespace UnityStandardAssets.Vehicles.Car
 
             SteerHelper();
             ApplyDrive(accel, footbrake);
-            CapSpeed();
+            float sp = CapSpeed();
+
+            if (footbrake != 0 && sp <= 0)
+                return;
 
             //Set the handbrake.
             //Assuming that wheels 2 and 3 are the rear wheels.
@@ -172,7 +175,7 @@ namespace UnityStandardAssets.Vehicles.Car
         }
 
 
-        private void CapSpeed()
+        private float CapSpeed()
         {
             float speed = m_Rigidbody.velocity.magnitude;
             switch (m_SpeedType)
@@ -190,6 +193,8 @@ namespace UnityStandardAssets.Vehicles.Car
                         m_Rigidbody.velocity = (m_Topspeed/3.6f) * m_Rigidbody.velocity.normalized;
                     break;
             }
+
+            return speed;
         }
 
 

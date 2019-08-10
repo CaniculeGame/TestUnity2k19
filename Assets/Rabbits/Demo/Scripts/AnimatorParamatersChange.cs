@@ -29,7 +29,7 @@ namespace FiveRabbitsDemo
         }
         */
 #if UNITY_EDITOR
-        private void OnGUI()
+       /* private void OnGUI()
         {
             GUI.BeginGroup(new Rect(0, 25, 150, 1000));
 
@@ -43,7 +43,7 @@ namespace FiveRabbitsDemo
             }
 
             GUI.EndGroup();
-        }
+        }*/
 #endif
     }
 }

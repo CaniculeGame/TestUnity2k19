@@ -8,6 +8,7 @@ public class GamePlayPlay : GamePlay
     private GameVar.PLAYER player = GameVar.PLAYER.PLAYER_CAR;
     public GameObject guiCompteur;
     public GameObject guiMain;
+    public GameObject guiCar;
 
     private void Start()
     {
@@ -29,6 +30,9 @@ public class GamePlayPlay : GamePlay
 
 
             // changement de gameplay
+            guiCar.transform.GetChild(0).gameObject.SetActive(true);
+            guiCar.transform.GetChild(2).gameObject.SetActive(false);
+
         }
         else if (distanceParcourue > 255)
         {
@@ -59,6 +63,7 @@ public class GamePlayPlay : GamePlay
 
     public override void Initialiser()
     {
-        throw new System.NotImplementedException();
+        guiCar.transform.GetChild(0).gameObject.SetActive(false);
+        guiCar.transform.GetChild(2).gameObject.SetActive(true);
     }
 }

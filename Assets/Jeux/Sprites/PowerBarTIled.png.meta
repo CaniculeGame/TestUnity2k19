@@ -1,0 +1,1035 @@
+fileFormatVersion: 2
+guid: 5c58c6e00f110004ea440346a144dd23
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3306028614237830215
+    second: PowerBarTIled_0
+  - first:
+      213: -6799104224341237432
+    second: PowerBarTIled_1
+  - first:
+      213: -8393847940641273522
+    second: PowerBarTIled_2
+  - first:
+      213: 5490097408471165422
+    second: PowerBarTIled_3
+  - first:
+      213: -3842449440139078037
+    second: PowerBarTIled_4
+  - first:
+      213: -5704535851652544638
+    second: PowerBarTIled_5
+  - first:
+      213: -7859967606924575355
+    second: PowerBarTIled_6
+  - first:
+      213: 7381756665882344870
+    second: PowerBarTIled_7
+  - first:
+      213: 8085085516788909142
+    second: PowerBarTIled_8
+  - first:
+      213: -4509330018195456472
+    second: PowerBarTIled_9
+  - first:
+      213: -4619789716575491777
+    second: PowerBarTIled_10
+  - first:
+      213: 818383570253704644
+    second: PowerBarTIled_11
+  - first:
+      213: -3413573415462864446
+    second: PowerBarTIled_12
+  - first:
+      213: -8763704958126079015
+    second: PowerBarTIled_13
+  - first:
+      213: 3597709098090682337
+    second: PowerBarTIled_14
+  - first:
+      213: -8680181719740326961
+    second: PowerBarTIled_15
+  - first:
+      213: 4503464150576996582
+    second: PowerBarTIled_16
+  - first:
+      213: -2872829666236403119
+    second: PowerBarTIled_17
+  - first:
+      213: 798847019600715187
+    second: PowerBarTIled_18
+  - first:
+      213: 2364661124440286611
+    second: PowerBarTIled_19
+  - first:
+      213: -3724465644742111644
+    second: PowerBarTIled_20
+  - first:
+      213: -7761602897569379853
+    second: PowerBarTIled_21
+  - first:
+      213: 5760298216451151261
+    second: PowerBarTIled_22
+  - first:
+      213: 9089748489821207777
+    second: PowerBarTIled_23
+  - first:
+      213: 4141086094543083469
+    second: PowerBarTIled_24
+  - first:
+      213: 8861194703188153968
+    second: PowerBarTIled_25
+  - first:
+      213: -5555389487401173046
+    second: PowerBarTIled_26
+  - first:
+      213: 3293567676813038716
+    second: PowerBarTIled_27
+  - first:
+      213: -5240579970329116868
+    second: PowerBarTIled_28
+  - first:
+      213: -9202499621119263136
+    second: PowerBarTIled_29
+  - first:
+      213: -6415188546356492849
+    second: PowerBarTIled_30
+  - first:
+      213: 3236388273469129510
+    second: PowerBarTIled_31
+  - first:
+      213: 7531228946557723774
+    second: PowerBarTIled_32
+  - first:
+      213: 264053354132023342
+    second: PowerBarTIled_33
+  - first:
+      213: -8017055896049674342
+    second: PowerBarTIled_34
+  - first:
+      213: 7196867674448351061
+    second: PowerBarTIled_35
+  - first:
+      213: 834218246101753145
+    second: PowerBarTIled_36
+  - first:
+      213: 863612750350690844
+    second: PowerBarTIled_37
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PowerBarTIled_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2270
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20720f8cab186244941e0354a6ba594
+      internalID: -3306028614237830215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_1
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 2270
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2102782981801c34f805afe2f4a71c8c
+      internalID: -6799104224341237432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_2
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 2270
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea36093e41e3644e9dd86b5421ff87d
+      internalID: -8393847940641273522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_3
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 2270
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72cef0d73d370f6499042781fcea3e60
+      internalID: 5490097408471165422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2035
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b847b14d7033784fa34ee6bcbdf52af
+      internalID: -3842449440139078037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_5
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 2035
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39eaeb7fb00de5d4b9b028783ef1d818
+      internalID: -5704535851652544638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_6
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 2035
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df66ecc6093374a44ad1ac7d740259aa
+      internalID: -7859967606924575355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_7
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 2035
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfd30ede2015504ead1b13ce539bbb7
+      internalID: 7381756665882344870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec1f22ca537cb644a081119ee423460
+      internalID: 8085085516788909142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1800
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0de3c54a389234ca5bf5c801187f03
+      internalID: -4509330018195456472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_10
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 1800
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1909cd28df04e7e43a1f9cc978c42989
+      internalID: -4619789716575491777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_11
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 1800
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565689a1a46c99541be2c3bd38255b79
+      internalID: 818383570253704644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1565
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e266a2b5cf4c0d546862a756bb1250f5
+      internalID: -3413573415462864446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_13
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1565
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7365223a4f17042b56aeb1dda9761c
+      internalID: -8763704958126079015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_14
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 1565
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3145a69fb6cf14fbcccc23d9fb5cb3
+      internalID: 3597709098090682337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_15
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 1565
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a98d96f987fe0424e8367e1286f9941b
+      internalID: -8680181719740326961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1330
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea02d01f574dd04faa1688707963cb0
+      internalID: 4503464150576996582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_17
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1330
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b23d49f255da8747b221c07a008bdc2
+      internalID: -2872829666236403119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_18
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 1330
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2b3f4a9ae81ea438783c45e01083a7
+      internalID: 798847019600715187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_19
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 1330
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9403a124bc9823f47a74426d838844db
+      internalID: 2364661124440286611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1095
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001ecdf5cc80c40409f32fd7617b93a6
+      internalID: -3724465644742111644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_21
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1095
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea282e761e4bccf418516612eaf68d7d
+      internalID: -7761602897569379853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_22
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 1095
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6079248ee4969548a406657ea198ce4
+      internalID: 5760298216451151261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_23
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 1095
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9977b03e656b6b94fbe1473b10ddb84a
+      internalID: 9089748489821207777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 860
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a151350766ede48a0b6b9a6388408e
+      internalID: 4141086094543083469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_25
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 860
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b200b9c6d956ac248b98067084b8ce10
+      internalID: 8861194703188153968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_26
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 860
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca9648b86fd620246a204fc61ab0ec8c
+      internalID: -5555389487401173046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_27
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 860
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52dfc35ff62edd24d84778734a12d17a
+      internalID: 3293567676813038716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 625
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10c58448d884884bbc3623902237751
+      internalID: -5240579970329116868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_29
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 625
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b72e7dd09a9ed449adda3fb4381ea52
+      internalID: -9202499621119263136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_30
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 625
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a2429708254c045a5eb3f7dbffced1
+      internalID: -6415188546356492849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_31
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 625
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5adaf92dc1476048991a201c95e8da0
+      internalID: 3236388273469129510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 390
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c73166fc948fce4f92808853c327226
+      internalID: 7531228946557723774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_33
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 390
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e1096dd5fbae148bf7867aa2333cd3
+      internalID: 264053354132023342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_34
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 390
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddae1a324bb358d4492772d04224be59
+      internalID: -8017055896049674342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_35
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 390
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48978229b9b86fa42ac5d18136ed66de
+      internalID: 7196867674448351061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 155
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6215a1c0e1e9d8247a79396cbc3b0522
+      internalID: 834218246101753145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PowerBarTIled_37
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 155
+        width: 620
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82f17aeff25e0634399393403316a907
+      internalID: 863612750350690844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: dde13e7cd96ddd142b2838527654a297
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
