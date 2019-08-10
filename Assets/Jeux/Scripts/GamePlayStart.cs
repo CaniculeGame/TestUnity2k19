@@ -41,6 +41,7 @@ public class GamePlayStart : GamePlay
         car.GetComponent<CarUserControl>().Initialiser();
         rabbit.GetComponent<PlayerController>().Initialiser();
         world.GetComponent<GenerateWorld>().Initialiser();
+        world.GetComponent<GenerateWorld>().Initialiser();
 
         //reinit Gui
         guiPause.gameObject.SetActive(false);
@@ -49,7 +50,7 @@ public class GamePlayStart : GamePlay
         guiGeneral.gameObject.SetActive(false);
         guiCar.transform.GetChild(0).gameObject.SetActive(false);
         guiCar.transform.GetChild(2).gameObject.SetActive(true);
-        guiCar.gameObject.SetActive(false);
+        guiCar.transform.GetChild(1).GetComponent<SliderPower>().Initialisation();
 
         game.Initialiser();
     }

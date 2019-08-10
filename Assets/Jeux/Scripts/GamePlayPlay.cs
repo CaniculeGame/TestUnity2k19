@@ -25,9 +25,7 @@ public class GamePlayPlay : GamePlay
         int tourEffectue = Mathf.RoundToInt(distanceParcourue)/ distanceTourMonde;
         if (distanceParcourue > 250 && distanceParcourue < 255)
         {
-
             timeManager.DoSlowmotion();
-
 
             // changement de gameplay
             guiCar.transform.GetChild(0).gameObject.SetActive(true);
