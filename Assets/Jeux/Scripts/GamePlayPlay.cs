@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityTest;
+using UnityStandardAssets.Vehicles.Car;
 
 public class GamePlayPlay : GamePlay
 {
@@ -9,6 +10,7 @@ public class GamePlayPlay : GamePlay
     public GameObject guiCompteur;
     public GameObject guiMain;
     public GameObject guiCar;
+    public GameObject car;
 
     private void Start()
     {
@@ -23,16 +25,20 @@ public class GamePlayPlay : GamePlay
 
         float distanceParcourue = game.DistanceParcourue;
         int tourEffectue = Mathf.RoundToInt(distanceParcourue)/ distanceTourMonde;
-        if (distanceParcourue > 250 && distanceParcourue < 255)
+        if (distanceParcourue > 250 && distanceParcourue < 270)
         {
-            timeManager.DoSlowmotion();
+         //   timeManager.DoSlowmotion();
 
             // changement de gameplay
             guiCar.transform.GetChild(0).gameObject.SetActive(true);
             guiCar.transform.GetChild(2).gameObject.SetActive(false);
 
+            float angle = car.GetComponentInParent<CarController>().GetAngle();
+            guiCar.transform.GetChild(3).gameObject.SetActive(true);
+            guiCar.transform.GetChild(3).GetComponent<Text>().text = angle + " °";
+
         }
-        else if (distanceParcourue > 255)
+        else if (distanceParcourue > 270)
         {
             //sortie du slowmotion
             timeManager.StopSlowMotion();
@@ -50,6 +56,7 @@ public class GamePlayPlay : GamePlay
             case GameVar.PLAYER.PLAYER_ANIMAL:
                 guiMain.transform.GetChild(2).gameObject.SetActive(false);
                 guiMain.transform.GetChild(3).gameObject.SetActive(true);
+                guiCar.transform.GetChild(3).gameObject.SetActive(false);
                 break;
 
             case GameVar.PLAYER.PLAYER_CAR:
@@ -63,5 +70,6 @@ public class GamePlayPlay : GamePlay
     {
         guiCar.transform.GetChild(0).gameObject.SetActive(false);
         guiCar.transform.GetChild(2).gameObject.SetActive(true);
+        guiCar.transform.GetChild(3).gameObject.SetActive(false);
     }
 }

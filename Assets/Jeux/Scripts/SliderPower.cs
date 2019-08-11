@@ -12,6 +12,9 @@ public class SliderPower : MonoBehaviour
     public float vMax = 0;
     public float vit = 0;
 
+    private CarController ctrl;
+    private Rigidbody rig;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +24,16 @@ public class SliderPower : MonoBehaviour
     public void Initialisation()
     {
         slider.value = 0.98f;
+        ctrl = car.GetComponent<CarController>();
+        rig = car.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    { 
+    {
         //recupere vitesse de la voiture
-        vMax = car.GetComponent<CarController>().MaxSpeed;
-        vit = (car.GetComponent<Rigidbody>().velocity.x * 3.6f);
+        vMax = ctrl.MaxSpeed;
+        vit = (rig.velocity.x * 3.6f);
 
         //normaliser pour etre entre 0 et 1
         vfinal = vit / vMax;

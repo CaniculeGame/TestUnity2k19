@@ -37,6 +37,9 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private float m_SlipLimit;
         [SerializeField] private float m_BrakeTorque;
 
+        private float timeDebut = 0;
+        private float tpsPasse = 0;
+
         private Quaternion[] m_WheelMeshLocalRotations;
         private Vector3 m_Prevpos, m_Pos;
         private float m_SteerAngle;
@@ -58,6 +61,9 @@ namespace UnityStandardAssets.Vehicles.Car
         // Use this for initialization
         private void Start()
         {
+            timeDebut = 0;
+            tpsPasse = 0;
+
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++)
             {
@@ -135,6 +141,20 @@ namespace UnityStandardAssets.Vehicles.Car
                 m_WheelColliders[i].GetWorldPose(out position, out quat);
                 m_WheelMeshes[i].transform.position = position;
                 m_WheelMeshes[i].transform.rotation = quat;
+            }
+
+            // on enclenche le frein
+            if (handbrake > 0f && timeDebut <= 0f)
+            {
+                timeDebut = Time.time;
+                Debug.Log("debut " + timeDebut);
+            }
+            // on stop le freinage
+            else if (handbrake == 0 && timeDebut > 0f) //time debut a du etre lancé
+            {
+                tpsPasse = (Time.time - timeDebut) * 20;//car on est en slowmotion
+                Debug.Log("fin " + Time.time);
+                timeDebut = 0f;
             }
 
             //clamp input values
@@ -370,9 +390,20 @@ namespace UnityStandardAssets.Vehicles.Car
         }
 
 
-        private void Acceleration()
-        {
 
+        private float CalculateAngle()
+        {
+            float freinageMaxTps = 5; //sec
+            float angle = 0f;
+            float angleMax = 90f;
+
+            angle = (angleMax * tpsPasse ) / freinageMaxTps;
+            if (angle > angleMax)
+                angle = angleMax;
+
+            return 0;
         }
+
+        public float GetAngle() { return CalculateAngle(); }
     }
 }
