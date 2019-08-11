@@ -12,7 +12,7 @@ public class CompteurVitesse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Initialiser();
+        lastPosition = referentiel.transform.position;
     }
 
     // Update is called once per frame
@@ -32,18 +32,9 @@ public class CompteurVitesse : MonoBehaviour
 
     private void CalculDistanceParcourue()
     {
-        if (GameVar.DonnerInstance().GamePlayState != GameVar.GAME_STATES.GAME_STATES_PLAY)
-            return;
-
         float dist = Vector3.Distance(referentiel.transform.position, lastPosition);
         GameVar.DonnerInstance().DistanceParcourue += dist * facteurDistance;
         lastPosition = referentiel.transform.position;
-    }
-
-    public void Initialiser()
-    {
-        lastPosition = referentiel.transform.position;
-        GameVar.DonnerInstance().DistanceParcourue = 0;
     }
 
 }

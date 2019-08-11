@@ -47,9 +47,6 @@ namespace UnityStandardAssets.Vehicles.Car
         private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
 
-        private float timeDebut = 0;
-        private float tpsPasse = 0;
-
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
         public float CurrentSteerAngle{ get { return m_SteerAngle; }}
@@ -61,9 +58,6 @@ namespace UnityStandardAssets.Vehicles.Car
         // Use this for initialization
         private void Start()
         {
-            timeDebut   = 0;
-            tpsPasse = 0;
-
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++)
             {
@@ -141,20 +135,6 @@ namespace UnityStandardAssets.Vehicles.Car
                 m_WheelColliders[i].GetWorldPose(out position, out quat);
                 m_WheelMeshes[i].transform.position = position;
                 m_WheelMeshes[i].transform.rotation = quat;
-            }
-
-            // on enclenche le frein
-            if (handbrake > 0f && timeDebut <= 0f)
-            {
-                timeDebut = Time.time;
-                Debug.Log("debut " + timeDebut);
-            }
-            // on stop le freinage
-            else if (handbrake == 0 && timeDebut > 0f) //time debut a du etre lancé
-            {
-                tpsPasse = (Time.time - timeDebut)*20;//car on est en slowmotion
-                Debug.Log("fin " + Time.time);
-                timeDebut = 0f;
             }
 
             //clamp input values
@@ -390,19 +370,9 @@ namespace UnityStandardAssets.Vehicles.Car
         }
 
 
-        private float CalculateAngle()
+        private void Acceleration()
         {
-    /*        float freinageMaxTps = 5; //sec
-            float angle = 0f;
-            float angleMax = 90f;
 
-            angle = (angleMax * tpsPasse ) / freinageMaxTps;
-            if (angle > angleMax)
-                angle = angleMax;*/
-
-            return 0;
         }
-
-        public float GetAngle() { return CalculateAngle(); }
     }
 }

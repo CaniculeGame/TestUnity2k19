@@ -37,12 +37,11 @@ public class GamePlayStart : GamePlay
         Verification();
         timeManager.Initialiser();
 
+        camera.GetComponent<CameraRunner>().ReinitialiserPlayer();
         car.GetComponent<CarUserControl>().Initialiser();
         rabbit.GetComponent<PlayerController>().Initialiser();
         world.GetComponent<GenerateWorld>().Initialiser();
         world.GetComponent<GenerateWorld>().Initialiser();
-        camera.GetComponent<CameraRunner>().ReinitialiserPlayer();
-        camera.GetComponent<CompteurVitesse>().Initialiser();
 
         //reinit Gui
         guiPause.gameObject.SetActive(false);
