@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -10,7 +9,7 @@ using UnityEngine;
  * 
  * ******************************************/
 
-public class PoolObjects : MonoBehaviour
+public class PoolObjects
 {
     private GameObject objet;
     private Transform parent;
@@ -20,7 +19,7 @@ public class PoolObjects : MonoBehaviour
     // appeler cette fonction quand l'obj n'est plus utilisé
     public void SupprimerObject(GameObject obj)
     {
-        if (obj == null)
+        if (obj == null ||stackObj == null)
             return;
 
         //desactive obj
@@ -41,7 +40,7 @@ public class PoolObjects : MonoBehaviour
         // si pile est vide, alors on instancie un objet
         if (stackObj.Count <= 0)
         {
-            obj = Instantiate(objet, position, rotation);
+            obj = GameObject.Instantiate(objet, position, rotation);
             obj.transform.parent = parent;
             return obj;
         }
