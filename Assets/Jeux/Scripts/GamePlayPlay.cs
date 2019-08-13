@@ -12,6 +12,8 @@ public class GamePlayPlay : GamePlay
     public GameObject guiCar;
     public GameObject car;
 
+    private bool enCours = false;
+
     private void Start()
     {
         game = GameVar.DonnerInstance();
@@ -27,16 +29,19 @@ public class GamePlayPlay : GamePlay
         int tourEffectue = Mathf.RoundToInt(distanceParcourue)/ distanceTourMonde;
         if (distanceParcourue > 250 && distanceParcourue < 270)
         {
-         //   timeManager.DoSlowmotion();
+             timeManager.DoSlowmotion();
 
-            // changement de gameplay
-            guiCar.transform.GetChild(0).gameObject.SetActive(true);
-            guiCar.transform.GetChild(2).gameObject.SetActive(false);
+            if (!enCours)
+            {
+                // changement de gameplay
+                guiCar.transform.GetChild(0).gameObject.SetActive(true);
+                guiCar.transform.GetChild(2).gameObject.SetActive(false);
+                guiCar.transform.GetChild(3).gameObject.SetActive(true);
+                enCours = true;
+            }
 
             float angle = car.GetComponentInParent<CarController>().GetAngle();
-            guiCar.transform.GetChild(3).gameObject.SetActive(true);
             guiCar.transform.GetChild(3).GetComponent<Text>().text = angle + " °";
-
         }
         else if (distanceParcourue > 270)
         {
@@ -71,5 +76,6 @@ public class GamePlayPlay : GamePlay
         guiCar.transform.GetChild(0).gameObject.SetActive(false);
         guiCar.transform.GetChild(2).gameObject.SetActive(true);
         guiCar.transform.GetChild(3).gameObject.SetActive(false);
+        enCours = false;
     }
 }

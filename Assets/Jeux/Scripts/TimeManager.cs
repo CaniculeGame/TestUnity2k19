@@ -9,6 +9,7 @@ public class TimeManager : MonoBehaviour
 
     private float oldTimeScale = 0;
     private bool estEnPause = false;
+    private float normalFixedDeltaTime = 0;
 
     void Update()
     {
@@ -32,6 +33,7 @@ public class TimeManager : MonoBehaviour
         estEnPause = false;
         Time.timeScale = 1;
         slowmotionActivated = false;
+        normalFixedDeltaTime = Time.fixedDeltaTime;
     }
 
     public bool EstEnPause(){return estEnPause;}
@@ -68,6 +70,7 @@ public class TimeManager : MonoBehaviour
         if (slowmotionActivated)
         {
             Time.timeScale = 1;
+            Time.fixedDeltaTime = normalFixedDeltaTime;
             slowmotionActivated = false;
         }
     }

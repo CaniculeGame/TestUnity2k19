@@ -6,7 +6,7 @@ using UnityStandardAssets.Vehicles.Car;
 public class PlayerController : MonoBehaviour
 {
     private bool premiereFois = true;
-    public  Camera camera;
+    public Camera camera;
     public Rigidbody rigidbody;
     public GameObject ui;
 
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             premiereFois = false;
 
             //lancement
-            transform.Rotate(new Vector3(0f, 90f, 0f));
+            transform.Rotate(new Vector3(0f, -90f, 0f));
 
             // calcul du vecteur
             float energie = ((1f / 2f) * masse * Mathf.Pow(vitesse / 3.6f, 2)) / 10000f;
