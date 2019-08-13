@@ -42,7 +42,6 @@ public class GamePlayStart : GamePlay
         world.GetComponent<GenerateWorld>().Initialiser();
         world.GetComponent<GenerateWorld>().Initialiser();
         camera.GetComponent<CameraRunner>().ReinitialiserPlayer();
-        camera.GetComponent<CompteurVitesse>().Initialiser();
 
         //reinit Gui
         guiPause.gameObject.SetActive(false);
@@ -54,6 +53,8 @@ public class GamePlayStart : GamePlay
         guiCar.transform.GetChild(1).GetComponent<SliderPower>().Initialisation();
 
         game.Initialiser();
+        camera.GetComponent<CompteurVitesse>().ChangerReferentiel(car.transform);
+        camera.GetComponent<CompteurVitesse>().Initialiser();
     }
 
     private void Start()
