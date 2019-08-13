@@ -2,6 +2,7 @@
 using UnityTest;
 using UnityEngine.UI;
 using System;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -74,6 +75,9 @@ public class MenuManager : MonoBehaviour
         CustomAnimalsMenu.SetActive(true);
         OptionMenu.SetActive(false);
         HightScoreMenu.SetActive(false);
+
+        int petId = PlayerPrefs.GetInt("PetId");
+        EventSystem.current.SetSelectedGameObject(CustomAnimalsMenu.transform.GetChild(2).GetChild(petId).gameObject);
     }
 
     public void AfficherHightScorelMenu()
