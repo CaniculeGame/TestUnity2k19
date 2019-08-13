@@ -12,7 +12,8 @@ public class GamePlayStart : GamePlay
     public GameObject guiRabbit;
     public GameObject guiTuTo;
 
-    public GameObject rabbit;
+    public GameObject animal;
+    public GameObject[] animalsList;
     public GameObject car;
     public Camera camera;
     public GameObject world;
@@ -21,14 +22,6 @@ public class GamePlayStart : GamePlay
     public override void Initialiser()
     {
         /* *rien a faire puisque c'est nous qui appelont toutes les autres*/
-        if (rabbit == null)
-            rabbit = GameObject.Find("rabbit");
-
-        if (car == null)
-            car = GameObject.Find("Car");
-
-        if (camera == null)
-            camera = GameObject.Find("MainCamera").GetComponent<Camera>();
     }
 
 
@@ -38,10 +31,11 @@ public class GamePlayStart : GamePlay
         timeManager.Initialiser();
 
         car.GetComponent<CarUserControl>().Initialiser();
-        rabbit.GetComponent<PlayerController>().Initialiser();
+        animal.GetComponent<PlayerController>().Initialiser();
         world.GetComponent<GenerateWorld>().Initialiser();
         world.GetComponent<GenerateWorld>().Initialiser();
         camera.GetComponent<CameraRunner>().ReinitialiserPlayer();
+
 
         //reinit Gui
         guiPause.gameObject.SetActive(false);
@@ -57,8 +51,22 @@ public class GamePlayStart : GamePlay
         camera.GetComponent<CompteurVitesse>().Initialiser();
     }
 
+    private void ChargerAnimal()
+    {
+        //chargement de l'animal choisi
+        int petId = PlayerPrefs.GetInt("PetId");
+        GameObject mesh = GameObject.Instantiate(animalsList[petId], Vector3.zero, Quaternion.identity);
+        // positionnement de l'animal
+        mesh.transform.parent = animal.transform;
+        animal.transform.position = Vector3.zero;
+        mesh.transform.position = Vector3.zero;
+        mesh.transform.rotation = Quaternion.identity;
+        mesh.transform.Rotate(new Vector3(0, 180, 0));
+    }
+
     private void Start()
     {
+        ChargerAnimal();
         Init();
     }
 
