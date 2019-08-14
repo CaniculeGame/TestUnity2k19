@@ -73,7 +73,7 @@ public class GamePlayStart : GamePlay
 
         mesh.transform.parent = car.transform;
        // mesh.transform.rotation = Quaternion.identity;
-        mesh.transform.GetChild(0).Rotate(new Vector3(0, 90, 0));
+        mesh.transform.Rotate(new Vector3(0, 90, 0));
         mesh.transform.position = new Vector3(0,0,3);
 
         car.GetComponent<CarController>().RechargerWheelMesh();

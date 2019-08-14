@@ -140,7 +140,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 Quaternion quat;
                 Vector3 position;
                 m_WheelColliders[i].GetWorldPose(out position, out quat);
-                m_WheelMeshes[i].transform.position = position;
+              //  m_WheelMeshes[i].transform.position = position;
                 m_WheelMeshes[i].transform.rotation = quat;
             }
 
@@ -412,15 +412,9 @@ namespace UnityStandardAssets.Vehicles.Car
             for (int i = 0; i < 4; i++)
             {
                 m_WheelMeshes[i] = transform.GetChild(6).GetChild(i + 1).gameObject;
+                m_WheelMeshes[i].transform.rotation = Quaternion.identity;
+                m_WheelColliders[i].transform.position = m_WheelMeshes[i].transform.position;
             }
-
-            m_WheelMeshLocalRotations = new Quaternion[4];
-            for (int i = 0; i < 4; i++)
-            {
-                m_WheelMeshLocalRotations[i] = m_WheelMeshes[i].transform.localRotation;
-            }
-
-            m_WheelColliders[0].attachedRigidbody.centerOfMass = m_CentreOfMassOffset;
         }
     }
 }
