@@ -64,6 +64,7 @@ namespace UnityStandardAssets.Vehicles.Car
             timeDebut = 0;
             tpsPasse = 0;
 
+
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++)
             {
@@ -405,5 +406,21 @@ namespace UnityStandardAssets.Vehicles.Car
         }
 
         public float GetAngle() { return CalculateAngle(); }
+
+        public void RechargerWheelMesh()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                m_WheelMeshes[i] = transform.GetChild(6).GetChild(i + 1).gameObject;
+            }
+
+            m_WheelMeshLocalRotations = new Quaternion[4];
+            for (int i = 0; i < 4; i++)
+            {
+                m_WheelMeshLocalRotations[i] = m_WheelMeshes[i].transform.localRotation;
+            }
+
+            m_WheelColliders[0].attachedRigidbody.centerOfMass = m_CentreOfMassOffset;
+        }
     }
 }

@@ -15,6 +15,7 @@ public class GamePlayStart : GamePlay
     public GameObject animal;
     public GameObject[] animalsList;
     public GameObject car;
+    public GameObject[] carsList;
     public Camera camera;
     public GameObject world;
     public GameVar.GAME_STATES st;
@@ -64,9 +65,24 @@ public class GamePlayStart : GamePlay
         mesh.transform.Rotate(new Vector3(0, 180, 0));
     }
 
+    private void ChargerVoiture()
+    {
+        //chargement de la voiture choisi
+        int carId = PlayerPrefs.GetInt("CarId");
+        GameObject mesh = GameObject.Instantiate(carsList[carId], Vector3.zero, Quaternion.identity);
+
+        mesh.transform.parent = car.transform;
+       // mesh.transform.rotation = Quaternion.identity;
+        mesh.transform.GetChild(0).Rotate(new Vector3(0, 90, 0));
+        mesh.transform.position = new Vector3(0,0,3);
+
+        car.GetComponent<CarController>().RechargerWheelMesh();
+    }
+
     private void Start()
     {
         ChargerAnimal();
+        ChargerVoiture();
         Init();
     }
 
