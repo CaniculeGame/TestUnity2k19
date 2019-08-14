@@ -105,6 +105,9 @@ public class MenuManager : MonoBehaviour
         CustomAnimalsMenu.SetActive(false);
         OptionMenu.SetActive(false);
         HightScoreMenu.SetActive(false);
+
+        int charId = PlayerPrefs.GetInt("CharId");
+        EventSystem.current.SetSelectedGameObject(CustomCharMenu.transform.GetChild(2).GetChild(charId).gameObject);
     }
 
     public void ChangerLangue(int langue)
