@@ -67,6 +67,9 @@ public class MenuManager : MonoBehaviour
         CustomAnimalsMenu.SetActive(false);
         OptionMenu.SetActive(false);
         HightScoreMenu.SetActive(false);
+
+        int carId = PlayerPrefs.GetInt("CarId");
+        EventSystem.current.SetSelectedGameObject(CustomCarMenu.transform.GetChild(2).GetChild(carId).gameObject);
     }
 
 
