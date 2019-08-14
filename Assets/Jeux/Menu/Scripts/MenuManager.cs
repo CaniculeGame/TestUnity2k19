@@ -54,6 +54,9 @@ public class MenuManager : MonoBehaviour
         CustomAnimalsMenu.SetActive(false);
         OptionMenu.SetActive(true);
         HightScoreMenu.SetActive(false);
+
+       int lgId = PlayerPrefs.GetInt("langue");
+        EventSystem.current.SetSelectedGameObject(OptionMenu.transform.GetChild(2).GetChild(lgId).gameObject);
     }
 
     public void AfficherCustomCarMenu()
