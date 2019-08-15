@@ -60,11 +60,13 @@ public class GamePlayPlay : GamePlay
                 guiMain.transform.GetChild(2).gameObject.SetActive(false);
                 guiMain.transform.GetChild(3).gameObject.SetActive(true);
                 guiCar.transform.GetChild(3).gameObject.SetActive(false);
+                car.SetActive(false);
                 break;
 
             case GameVar.PLAYER.PLAYER_CAR:
                 guiMain.transform.GetChild(2).gameObject.SetActive(true);
                 guiMain.transform.GetChild(3).gameObject.SetActive(false);
+                car.SetActive(true);
                 break;
         }
     }

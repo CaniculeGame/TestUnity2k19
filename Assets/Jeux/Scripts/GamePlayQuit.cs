@@ -33,12 +33,13 @@ public class GamePlayQuit : GamePlay
         textTour    = guiGameOver.transform.GetChild(6).GetChild(0).GetComponent<Text>();
         textDist    = guiGameOver.transform.GetChild(6).GetChild(1).GetComponent<Text>();
         textScoreFinal = guiGameOver.transform.GetChild(6).GetChild(2).GetComponent<Text>();
-        textField   = guiGameOver.transform.GetChild(5).gameObject;
+        textField   = guiGameOver.transform.GetChild(5).GetChild(1).gameObject;
 
 
         //init langue
         textScore.text = Dictionnaires.Dictionnaire.DonnerMot("Score");
         textName.text = Dictionnaires.Dictionnaire.DonnerMot("Name");
+        textField.GetComponent<Text>().text = "AAA";
 
         retryButton.GetComponentInChildren<Text>().text     = Dictionnaires.Dictionnaire.DonnerMot("Retry");
         mainMenuButton.GetComponentInChildren<Text>().text  = Dictionnaires.Dictionnaire.DonnerMot("MainMenu");

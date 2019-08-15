@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
             // calcul du vecteur
             float energie = ((1f / 2f) * masse * Mathf.Pow(vitesse / 3.6f, 2)) / 10000f;
             //Debug.Log("f= " + energie + " m="+masse+"  v="+vitesse );
+
+            angleRad = Mathf.PI * (45) / 180f;
             float cos = Mathf.Cos(angleRad);
             float sin = Mathf.Sin(angleRad);
 
