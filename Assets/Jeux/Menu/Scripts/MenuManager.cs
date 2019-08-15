@@ -3,6 +3,7 @@ using UnityTest;
 using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
+using System.IO;
 
 public class MenuManager : MonoBehaviour
 {
@@ -94,6 +95,11 @@ public class MenuManager : MonoBehaviour
         CustomAnimalsMenu.SetActive(false);
         OptionMenu.SetActive(false);
         HightScoreMenu.SetActive(true);
+
+        //rafraichir score
+        RafraichirGuiCustomHightScore();
+
+
     }
 
 
@@ -224,6 +230,43 @@ public class MenuManager : MonoBehaviour
         Dictionnaires dico = Dictionnaires.Dictionnaire;
 
         HightScoreMenu.transform.GetChild(0).GetComponent<Text>().text = dico.DonnerMot("HightScore");
+
+
+        //ouvrir fichier
+        string path = Application.persistentDataPath + "/scores.txt";
+        string[] data;
+        try
+        {
+            data = File.ReadAllLines(path);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("creation fichier manquant");
+            path = "Scores/scores";
+            TextAsset textFile = Resources.Load<TextAsset>(path);
+            Debug.Log(textFile);
+
+            path = Application.persistentDataPath + "/scores.txt";
+            Debug.Log(path);
+            File.WriteAllText(path, textFile.ToString());
+            data = File.ReadAllLines(path);
+        }
+
+        //rappatrier valeur sous forme de couple
+        Couple[] tab = new Couple[10];
+        for (int i = 0; i < 10; i++)
+        {
+            string[] couple = data[i].Split(':');
+            tab[i] = new Couple(couple[0], float.Parse(couple[1]));
+        }
+
+        GameObject panel = HightScoreMenu.transform.GetChild(3).GetChild(0).gameObject;
+        //modifier text
+        for (int i=9; i >= 0;i--)
+        {
+            string str = (10-i).ToString() + "  " + tab[i].Name + "  " + tab[i].Valeur.ToString();
+            panel.transform.GetChild(9-i).GetComponent<Text>().text = str;
+        }
     }
 
 
