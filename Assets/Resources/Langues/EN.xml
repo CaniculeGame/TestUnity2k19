@@ -70,5 +70,11 @@
     <mot key="EarthTour">
       <motDico>Earth Tour</motDico>
     </mot>
+    <mot key="Score">
+      <motDico>Score</motDico>
+    </mot>
+    <mot key="Name">
+      <motDico>Name</motDico>
+    </mot>
   </mots>
 </dico>

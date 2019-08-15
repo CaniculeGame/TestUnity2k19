@@ -5,7 +5,6 @@ using UnityStandardAssets.Vehicles.Car;
 
 public class GamePlayPlay : GamePlay
 {
-    private int distanceTourMonde = 40010000; //m
     private GameVar.PLAYER player = GameVar.PLAYER.PLAYER_CAR;
     public GameObject guiCompteur;
     public GameObject guiMain;
@@ -26,19 +25,18 @@ public class GamePlayPlay : GamePlay
             return;
 
         float distanceParcourue = game.DistanceParcourue;
-        int tourEffectue = Mathf.RoundToInt(distanceParcourue)/ distanceTourMonde;
+        int tourEffectue = Mathf.RoundToInt(distanceParcourue)/ game.DistanceTourDuMonde;
         if (distanceParcourue > 250 && distanceParcourue < 270)
         {
              timeManager.DoSlowmotion();
 
-            if (!enCours)
-            {
+ 
                 // changement de gameplay
                 guiCar.transform.GetChild(0).gameObject.SetActive(true);
                 guiCar.transform.GetChild(2).gameObject.SetActive(false);
                 guiCar.transform.GetChild(3).gameObject.SetActive(true);
                 enCours = true;
-            }
+            
 
             float angle = car.GetComponentInParent<CarController>().GetAngle();
             guiCar.transform.GetChild(3).GetComponent<Text>().text = angle + " °";

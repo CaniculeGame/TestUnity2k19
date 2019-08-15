@@ -415,6 +415,13 @@ namespace UnityStandardAssets.Vehicles.Car
                 m_WheelMeshes[i].transform.rotation = Quaternion.identity;
                 m_WheelColliders[i].transform.position = m_WheelMeshes[i].transform.position;
             }
+
+            m_WheelColliders[0].attachedRigidbody.centerOfMass = m_CentreOfMassOffset;
+
+            m_MaxHandbrakeTorque = float.MaxValue;
+
+            m_Rigidbody = GetComponent<Rigidbody>();
+            m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl * m_FullTorqueOverAllWheels);
         }
     }
 }

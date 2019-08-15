@@ -37,8 +37,8 @@ namespace UnityTest
 
         private static GameVar instance = null;
 
-
-        private float distanceParcourue = 0; // km
+        private int distanceTourDuMonde = 40010000; //metre
+        private float distanceParcourue = 0; // metre
         private State gameState = State.STATE_CAR;
         private GAME_STATES gamegamePlayState;
         private PLAYER gamePlay;
@@ -71,6 +71,12 @@ namespace UnityTest
         {
             set { distanceParcourue = value; }
             get { return distanceParcourue; }
+        }
+
+        public int DistanceTourDuMonde
+        {
+            set { distanceTourDuMonde = value; }
+            get { return distanceTourDuMonde; }
         }
 
 

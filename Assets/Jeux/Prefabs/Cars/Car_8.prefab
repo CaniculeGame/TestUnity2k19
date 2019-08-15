@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6242282169222067726}
   - component: {fileID: 2554097754723290005}
   m_Layer: 0
-  m_Name: Car4
+  m_Name: Car_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6987989408094520349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.62, z: -2.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 779665346684579926}

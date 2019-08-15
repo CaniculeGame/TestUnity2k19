@@ -7,6 +7,7 @@ using UnityTest;
 public class GamePlayStart : GamePlay 
 {
     public GameObject guiPause;
+    public GameObject guiGameOver;
     public GameObject guiGeneral;
     public GameObject guiCar;
     public GameObject guiRabbit;
@@ -39,12 +40,14 @@ public class GamePlayStart : GamePlay
 
 
         //reinit Gui
+        guiGameOver.gameObject.SetActive(false);
         guiPause.gameObject.SetActive(false);
         guiRabbit.gameObject.SetActive(false);
         guiTuTo.gameObject.SetActive(false);
         guiGeneral.gameObject.SetActive(false);
         guiCar.transform.GetChild(0).gameObject.SetActive(false);
         guiCar.transform.GetChild(2).gameObject.SetActive(true);
+        guiCar.transform.GetChild(3).gameObject.SetActive(false);
         guiCar.transform.GetChild(1).GetComponent<SliderPower>().Initialisation();
 
         game.Initialiser();
@@ -55,7 +58,11 @@ public class GamePlayStart : GamePlay
     private void ChargerAnimal()
     {
         //chargement de l'animal choisi
+#if UNITY_EDITOR
+        int petId = 0;
+#else
         int petId = PlayerPrefs.GetInt("PetId");
+#endif
         GameObject mesh = GameObject.Instantiate(animalsList[petId], Vector3.zero, Quaternion.identity);
         // positionnement de l'animal
         mesh.transform.parent = animal.transform;
@@ -68,14 +75,23 @@ public class GamePlayStart : GamePlay
     private void ChargerVoiture()
     {
         //chargement de la voiture choisi
-        int carId = PlayerPrefs.GetInt("CarId");
+#if UNITY_EDITOR
+        int carId =3; // 0,2,3,4,5,6, -0.7   1 : -0.1
+#else
+       int carId = PlayerPrefs.GetInt("CarId");
+#endif
+        // c'est pas tres beau
+        float y = -0.7f;
+        if (carId == 1)
+            y = -0.1f;
+
         GameObject mesh = GameObject.Instantiate(carsList[carId], Vector3.zero, Quaternion.identity);
 
         mesh.transform.parent = car.transform;
        // mesh.transform.rotation = Quaternion.identity;
         mesh.transform.Rotate(new Vector3(0, 90, 0));
-        mesh.transform.position = new Vector3(0,0,3);
-
+        mesh.transform.position = new Vector3(0,0,0);
+        car.transform.GetChild(0).position = new Vector3(0, y, 0);
         car.GetComponent<CarController>().RechargerWheelMesh();
     }
 

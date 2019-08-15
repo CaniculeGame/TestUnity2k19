@@ -55,6 +55,27 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    public void MettrePause()
+    {
+        if (estEnPause == false)
+        {
+            Debug.Log("Pause");
+            oldTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+            estEnPause = true;
+        }
+    }
+
+    public void UnPause()
+    {
+        if (estEnPause == true)
+        {
+            Debug.Log("UnPause");
+            Time.timeScale = oldTimeScale;
+            estEnPause = false;
+        }
+    }
+
     public void DoSlowmotion()
     {
         if (!slowmotionActivated)
